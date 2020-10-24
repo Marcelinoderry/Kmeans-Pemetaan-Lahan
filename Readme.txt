@@ -1,1 +1,0 @@
-Kmeans-Pemetaan-Lahan
