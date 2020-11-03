@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Adminty</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="#">
+    <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="#">
+    <!-- Favicon icon -->
+    <link rel="icon" href="..\files\assets\images\favicon.ico" type="image/x-icon">
+    <!-- Google font--><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="..\files\bower_components\bootstrap\css\bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="..\files\assets\icon\themify-icons\themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="..\files\assets\icon\icofont\css\icofont.css">
+    <!-- feather Awesome -->
+    <link rel="stylesheet" type="text/css" href="..\files\assets\icon\feather\css\feather.css">
+    <!-- Data Table Css -->
+    <link rel="stylesheet" type="text/css" href="..\files\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="..\files\assets\pages\data-table\css\buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="..\files\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="..\files\assets\css\style.css">
+    <link rel="stylesheet" type="text/css" href="..\files\assets\css\jquery.mCustomScrollbar.css">
+</head>
+
+<body>
+<!-- Pre-loader start -->
+<div class="theme-loader">
+    <div class="ball-scale">
+        <div class='contain'>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pre-loader end -->
+<div id="pcoded" class="pcoded">
+    <div class="pcoded-overlay-box"></div>
+    <div class="pcoded-container navbar-wrapper">
+        <!-- Navbar Top -->
+        <nav class="navbar header-navbar pcoded-header">
+            <div class="navbar-wrapper">
+                <!-- Mobile View-->
+                <div class="navbar-logo">
+                    <a class="mobile-menu" id="mobile-collapse" href="#!">
+                        <i class="feather icon-menu"></i>
+                    </a>
+                    <a href="index-1.htm">
+                        <img class="img-fluid" src="..\files\assets\images\logo.png" alt="Theme-Logo">
+                    </a>
+                    <a class="mobile-options">
+                        <i class="feather icon-more-horizontal"></i>
+                    </a>
+                </div>
+
+                <div class="navbar-container container-fluid">
+                    <ul class="nav-left">
+                        <li class="header-search">
+                            <div class="main-search morphsearch-search">
+                                <div class="input-group">
+                                    <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
+                                    <input type="text" class="form-control">
+                                    <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#!" onclick="javascript:toggleFullScreen()">
+                                <i class="feather icon-maximize full-screen"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav-right">
+                        <li class="user-profile header-notification">
+                            <div class="dropdown-primary dropdown">
+                                <div class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="..\files\assets\images\avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+                                    <span>John Doe</span>
+                                    <i class="feather icon-chevron-down"></i>
+                                </div>
+                                <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                    <li>
+                                        <a href="user-profile.htm">
+                                            <i class="feather icon-user"></i> Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="auth-normal-sign-in.htm">
+                                            <i class="feather icon-log-out"></i> Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="pcoded-main-container">
+            <div class="pcoded-wrapper">
+              <!-- Navbar Left -->
+              <nav class="pcoded-navbar">
+                  <div class="pcoded-inner-navbar main-menu">
+                      <div class="pcoded-navigatio-lavel">Dashboard</div>
+                      <ul class="pcoded-item pcoded-left-item">
+                          <li class=" ">
+                              <a href="index.html">
+                                  <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                  <span class="pcoded-mtext">Dashboard</span>
+                              </a>
+                          </li>
+                      </ul>
+                      <div class="pcoded-navigatio-lavel">Tables</div>
+                      <ul class="pcoded-item pcoded-left-item">
+                          <li class="pcoded-hasmenu pcoded-trigger">
+                              <a href="javascript:void(0)">
+                                  <span class="pcoded-micon"><i class="feather icon-inbox"></i></span>
+                                  <span class="pcoded-mtext">Data Master</span>
+                                  <span class="pcoded-mcaret"></span>
+                              </a>
+                              <ul class="pcoded-submenu">
+                                  <li>
+                                      <a href="dm-kecamatan.html">
+                                          <span class="pcoded-mtext">Kecamatan</span>
+                                      </a>
+                                  </li>
+                                  <li class="active">
+                                      <a href="dm-peta.html">
+                                          <span class="pcoded-mtext">Peta</span>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div>
+              </nav>
+                <!-- Content -->
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
+                      <div class="main-body">
+                          <div class="page-wrapper">
+                                  <div class="page-body">
+                                      <div class="row">
+                                          <div class="col-sm-12">
+                                              <!-- HTML (DOM) Sourced Data table start -->
+                                              <div class="card">
+                                                  <div class="card-header">
+                                                    <h5>DataTables</h5>
+                                                  </div>
+                                                  <div class="card-block">
+                                                      <div class="dt-responsive table-responsive">
+                                                          <table id="dom-table" class="table table-striped table-bordered nowrap">
+                                                              <thead>
+                                                                  <tr>
+                                                                      <th>Name</th>
+                                                                      <th>Position</th>
+                                                                      <th>Office</th>
+                                                                      <th>Age</th>
+                                                                      <th>Start date</th>
+                                                                      <th>Salary</th>
+                                                                  </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                          <tr>
+                                                              <td>Tiger Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>61</td>
+                                                              <td>2011/04/25</td>
+                                                              <td>$320,800</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Garrett Winters</td>
+                                                              <td>Accountant</td>
+                                                              <td>Tokyo</td>
+                                                              <td>63</td>
+                                                              <td>2011/07/25</td>
+                                                              <td>$170,750</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Ashton Cox</td>
+                                                              <td>Junior Technical Author</td>
+                                                              <td>San Francisco</td>
+                                                              <td>66</td>
+                                                              <td>2009/01/12</td>
+                                                              <td>$86,000</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Cedric Kelly</td>
+                                                              <td>Senior Javascript Developer</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>22</td>
+                                                              <td>2012/03/29</td>
+                                                              <td>$433,060</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Airi Satou</td>
+                                                              <td>Accountant</td>
+                                                              <td>Tokyo</td>
+                                                              <td>33</td>
+                                                              <td>2008/11/28</td>
+                                                              <td>$162,700</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Brielle Williamson</td>
+                                                              <td>Integration Specialist</td>
+                                                              <td>New York</td>
+                                                              <td>61</td>
+                                                              <td>2012/12/02</td>
+                                                              <td>$372,000</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Herrod Chandler</td>
+                                                              <td>Sales Assistant</td>
+                                                              <td>San Francisco</td>
+                                                              <td>59</td>
+                                                              <td>2012/08/06</td>
+                                                              <td>$137,500</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Rhona Davidson</td>
+                                                              <td>Integration Specialist</td>
+                                                              <td>Tokyo</td>
+                                                              <td>55</td>
+                                                              <td>2010/10/14</td>
+                                                              <td>$327,900</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Colleen Hurst</td>
+                                                              <td>Javascript Developer</td>
+                                                              <td>San Francisco</td>
+                                                              <td>39</td>
+                                                              <td>2009/09/15</td>
+                                                              <td>$205,500</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Sonya Frost</td>
+                                                              <td>Software Engineer</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>23</td>
+                                                              <td>2008/12/13</td>
+                                                              <td>$103,600</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Jena Gaines</td>
+                                                              <td>Office Manager</td>
+                                                              <td>London</td>
+                                                              <td>30</td>
+                                                              <td>2008/12/19</td>
+                                                              <td>$90,560</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Quinn Flynn</td>
+                                                              <td>Support Lead</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>22</td>
+                                                              <td>2013/03/03</td>
+                                                              <td>$342,000</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Charde Marshall</td>
+                                                              <td>Regional Director</td>
+                                                              <td>San Francisco</td>
+                                                              <td>36</td>
+                                                              <td>2008/10/16</td>
+                                                              <td>$470,600</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Haley Kennedy</td>
+                                                              <td>Senior Marketing Designer</td>
+                                                              <td>London</td>
+                                                              <td>43</td>
+                                                              <td>2012/12/18</td>
+                                                              <td>$313,500</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Tatyana Fitzpatrick</td>
+                                                              <td>Regional Director</td>
+                                                              <td>London</td>
+                                                              <td>19</td>
+                                                              <td>2010/03/17</td>
+                                                              <td>$385,750</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Michael Silva</td>
+                                                              <td>Marketing Designer</td>
+                                                              <td>London</td>
+                                                              <td>66</td>
+                                                              <td>2012/11/27</td>
+                                                              <td>$198,500</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Paul Byrd</td>
+                                                              <td>Chief Financial Officer (CFO)</td>
+                                                              <td>New York</td>
+                                                              <td>64</td>
+                                                              <td>2010/06/09</td>
+                                                              <td>$725,000</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Gloria Little</td>
+                                                              <td>Systems Administrator</td>
+                                                              <td>New York</td>
+                                                              <td>59</td>
+                                                              <td>2009/04/10</td>
+                                                              <td>$237,500</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Bradley Greer</td>
+                                                              <td>Software Engineer</td>
+                                                              <td>London</td>
+                                                              <td>41</td>
+                                                              <td>2012/10/13</td>
+                                                              <td>$132,000</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Dai Rios</td>
+                                                              <td>Personnel Lead</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>35</td>
+                                                              <td>2012/09/26</td>
+                                                              <td>$217,500</td>
+                                                          </tr>
+                                                      </tbody>
+                                                          </table>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <!-- HTML (DOM) Sourced Data table end -->
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="..\files\bower_components\jquery\js\jquery.min.js"></script>
+    <script type="text/javascript" src="..\files\bower_components\jquery-ui\js\jquery-ui.min.js"></script>
+    <script type="text/javascript" src="..\files\bower_components\popper.js\js\popper.min.js"></script>
+    <script type="text/javascript" src="..\files\bower_components\bootstrap\js\bootstrap.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="..\files\bower_components\jquery-slimscroll\js\jquery.slimscroll.js"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="..\files\bower_components\modernizr\js\modernizr.js"></script>
+    <script type="text/javascript" src="..\files\bower_components\modernizr\js\css-scrollbars.js"></script>
+
+    <!-- data-table js -->
+    <script src="..\files\bower_components\datatables.net\js\jquery.dataTables.min.js"></script>
+    <script src="..\files\bower_components\datatables.net-buttons\js\dataTables.buttons.min.js"></script>
+    <script src="..\files\assets\pages\data-table\js\jszip.min.js"></script>
+    <script src="..\files\assets\pages\data-table\js\pdfmake.min.js"></script>
+    <script src="..\files\assets\pages\data-table\js\vfs_fonts.js"></script>
+    <script src="..\files\bower_components\datatables.net-buttons\js\buttons.print.min.js"></script>
+    <script src="..\files\bower_components\datatables.net-buttons\js\buttons.html5.min.js"></script>
+    <script src="..\files\bower_components\datatables.net-bs4\js\dataTables.bootstrap4.min.js"></script>
+    <script src="..\files\bower_components\datatables.net-responsive\js\dataTables.responsive.min.js"></script>
+    <script src="..\files\bower_components\datatables.net-responsive-bs4\js\responsive.bootstrap4.min.js"></script>
+    <!-- i18next.min.js -->
+    <script type="text/javascript" src="..\files\bower_components\i18next\js\i18next.min.js"></script>
+    <script type="text/javascript" src="..\files\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js"></script>
+    <script type="text/javascript" src="..\files\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js"></script>
+    <script type="text/javascript" src="..\files\bower_components\jquery-i18next\js\jquery-i18next.min.js"></script>
+    <!-- Custom js -->
+    <script src="..\files\assets\pages\data-table\js\data-table-custom.js"></script>
+
+    <script src="..\files\assets\js\pcoded.min.js"></script>
+    <script src="..\files\assets\js\vartical-layout.min.js"></script>
+    <script src="..\files\assets\js\jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="..\files\assets\js\script.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23581568-13');
+    </script>
+
+</body>
+</html>
