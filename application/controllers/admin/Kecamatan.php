@@ -19,7 +19,7 @@ class Kecamatan extends MY_Controller
             'halaman' => 'Kecamatan',
             'content' => 'admin/kecamatan/view',
             'data'    => $this->m_kecamatan->getAll(),
-            'css'     => '',
+            'css'     => 'admin/kecamatan/css/view',
             'js'      => 'admin/kecamatan/js/view'
         ];
 
