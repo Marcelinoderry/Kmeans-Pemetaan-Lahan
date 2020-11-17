@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link rel="shortcut icon" href="<?= base_url() ?>assets/map.png">
+    <link rel="shortcut icon" href="<?= assets_url() ?>map.png">
 
     <!-- begin:: css universal -->
     <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
@@ -104,23 +104,21 @@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="..\files\assets\images\manager1.png" class="img-radius" alt="User-Profile-Image">
-                                        <span>John Doe</span>
+                                        <span>Admin</span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                         <li>
-                                            <a href="user-profile.htm">
+                                            <a href="#">
                                                 <i class="feather icon-user"></i> Profile
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="auth-normal-sign-in.htm">
+                                            <a href="<?= logout_url() ?>">
                                                 <i class="feather icon-log-out"></i> Logout
                                             </a>
                                         </li>
                                     </ul>
-
                                 </div>
                             </li>
                         </ul>
@@ -135,7 +133,7 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="pcoded-navigatio-lavel">Dashboard</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="active">
+                                <li class="">
                                     <a href="<?= admin_url() ?>dashboard">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Dashboard</span>
@@ -150,7 +148,7 @@
                                         <span class="pcoded-mtext">Kecamatan</span>
                                     </a>
                                 </li>
-                                <li class="active">
+                                <li class="">
                                     <a href="<?= admin_url() ?>peta">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Pemetaan</span>
