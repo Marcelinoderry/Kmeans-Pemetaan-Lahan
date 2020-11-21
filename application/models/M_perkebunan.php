@@ -4,7 +4,7 @@ class M_perkebunan extends CI_Model
 {
     public function getAll()
     {
-        $result = $this->db->query("SELECT * FROM tb_perkebunan")->result();
+        $result = $this->db->query("SELECT * FROM tb_perkebunan ORDER BY kd_perkebunan")->result();
         return $result;
     }
 }

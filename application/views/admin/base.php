@@ -130,7 +130,7 @@
                     <!-- begin:: navbar left -->
                     <nav class="pcoded-navbar">
                         <div class="pcoded-inner-navbar main-menu">
-                            <div class="pcoded-navigatio-lavel">Dashboard</div>
+                            <div class="pcoded-navigatio-lavel">Home</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="">
                                     <a href="<?= admin_url() ?>dashboard">
@@ -166,6 +166,15 @@
                                     <a href="<?= admin_url() ?>peta">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Pemetaan</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="pcoded-navigatio-lavel">Metode</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="">
+                                    <a href="<?= admin_url() ?>algoritma">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Algoritma</span>
                                     </a>
                                 </li>
                             </ul>

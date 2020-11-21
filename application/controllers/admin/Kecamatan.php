@@ -34,6 +34,7 @@ class Kecamatan extends MY_Controller
 
         $data = [
             'id_kecamatan' => $result['id_kecamatan'],
+            'kd_kecamatan' => $result['kd_kecamatan'],
             'nama'         => $result['nama'],
             'url'          => $result['url'],
             'latitude'     => $result['latitude'],
@@ -79,6 +80,7 @@ class Kecamatan extends MY_Controller
 
         $data = [
             'id_kecamatan' => acak_id('tb_kecamatan', 'id_kecamatan'),
+            'kd_kecamatan' => $post['inpkode'],
             'nama'         => $post['inpnama'],
             'url'          => $post['inpurl'],
             'latitude'     => $post['inplatitude'],

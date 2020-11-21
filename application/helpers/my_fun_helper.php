@@ -16,6 +16,23 @@ if (!function_exists('acak_id')) {
     }
 }
 
+if (!function_exists('get_kode_urut')) {
+    function get_kode_urut($nmtbl, $kd)
+    {
+        $CI     = get_instance();
+        $result = $CI->db->select('*')->get($nmtbl);
+        $row    = $result->num_rows();
+
+        if ($row != 0) {
+            $kode  = $row + 1;
+            $add_k = str_pad($kode, 3, "0", STR_PAD_LEFT);
+            return "{$kd}{$add_k}";
+        } else {
+            return "{$kd}001";
+        }
+    }
+}
+
 if (!function_exists('waktu')) {
     function waktu($wkt)
     {

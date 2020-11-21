@@ -35,6 +35,10 @@
                         <input type="hidden" id="inpidperkebunan">
 
                         <div class="form-group">
+                            <label for="inpkode">Kode</label>
+                            <input type="text" class="form-control" name="inpkode" id="inpkode" value="<?= get_kode_urut('tb_perkebunan', 'KBN') ?>" readonly="readonly">
+                        </div>
+                        <div class="form-group">
                             <label for="inpnama">Nama *</label>
                             <input type="text" class="form-control" name="inpnama" id="inpnama" placeholder="Masukkan perkebunan">
                         </div>
@@ -56,6 +60,7 @@
                                 <tr>
                                     <th scope="col">No.</th>
                                     <th scope="col">Aksi</th>
+                                    <th scope="col">Kode</th>
                                     <th scope="col">Nama</th>
                                 </tr>
                             </thead>
@@ -73,6 +78,7 @@
                                                 <i class="fas fa-trash"></i>&nbsp;Hapus
                                             </button>
                                         </td>
+                                        <td align="center"><?= $rows->kd_perkebunan ?></td>
                                         <td align="center"><?= $rows->nama ?></td>
                                     </tr>
                                 <?php endforeach; ?>

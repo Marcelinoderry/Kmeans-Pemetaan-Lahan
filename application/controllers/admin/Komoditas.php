@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Perkebunan extends MY_Controller
+class Komoditas extends MY_Controller
 {
     public function __construct()
     {
@@ -16,11 +16,11 @@ class Perkebunan extends MY_Controller
     public function index()
     {
         $data = [
-            'halaman' => 'Perkebunan',
-            'content' => 'admin/perkebunan/view',
+            'halaman' => 'Komoditas',
+            'content' => 'admin/komoditas/view',
             'data'    => $this->m_perkebunan->getAll(),
-            'css'     => 'admin/perkebunan/css/view',
-            'js'      => 'admin/perkebunan/js/view'
+            'css'     => 'admin/komoditas/css/view',
+            'js'      => 'admin/komoditas/js/view'
         ];
 
         $this->load->view('admin/base', $data);
@@ -34,7 +34,6 @@ class Perkebunan extends MY_Controller
 
         $data = [
             'id_perkebunan' => $result['id_perkebunan'],
-            'kd_perkebunan' => $result['kd_perkebunan'],
             'nama'          => $result['nama'],
         ];
 
@@ -72,7 +71,6 @@ class Perkebunan extends MY_Controller
 
         $data = [
             'id_perkebunan' => acak_id('tb_perkebunan', 'id_perkebunan'),
-            'kd_perkebunan' => $post['inpkode'],
             'nama'          => $post['inpnama'],
         ];
 

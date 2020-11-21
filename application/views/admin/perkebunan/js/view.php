@@ -80,6 +80,7 @@
 
                     $('#inpidperkebunan').attr('name', 'inpidperkebunan');
                     $('#inpidperkebunan').val(data.id_perkebunan);
+                    $('#inpkode').val(data.kd_perkebunan);
                     $('#inpnama').val(data.nama);
 
                     $('#add').html('<i class="fas fa-save"></i>&nbsp;Simpan');

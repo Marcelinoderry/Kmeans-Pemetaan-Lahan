@@ -29,10 +29,6 @@
             e.preventDefault();
 
             $('#inpnama').attr('required', 'required');
-            $('#inpurl').attr('required', 'required');
-            $('#inplatitude').attr('required', 'required');
-            $('#inplongitude').attr('required', 'required');
-            $('#inpketerangan').attr('required', 'required');
 
             if ($('#form-add').parsley().isValid() == true) {
                 $.ajax({
@@ -69,7 +65,7 @@
 
             $.ajax({
                 type: "post",
-                url: "<?= admin_url() ?>kecamatan/get",
+                url: "<?= admin_url() ?>perkebunan/get",
                 dataType: 'json',
                 data: {
                     id: ini.data('id')
@@ -79,19 +75,14 @@
                     ini.html('<i class="fas fa-spinner"></i>&nbsp;Waiting...');
                 },
                 success: function(data) {
-                    $('form').attr('action', '<?= admin_url() ?>/kecamatan/upd');
+                    $('form').attr('action', '<?= admin_url() ?>/perkebunan/upd');
                     $('form').attr('id', 'form-upd');
 
-                    $('#inpidkecamatan').attr('name', 'inpidkecamatan');
-                    $('#inpidkecamatan').val(data.id_kecamatan);
-                    $('#inpkode').val(data.kd_kecamatan);
+                    $('#inpidperkebunan').attr('name', 'inpidperkebunan');
+                    $('#inpidperkebunan').val(data.id_perkebunan);
                     $('#inpnama').val(data.nama);
-                    $('#inpurl').val(data.url);
-                    $('#inplatitude').val(data.latitude);
-                    $('#inplongitude').val(data.longitude);
-                    $('#inpketerangan').val(data.keterangan);
 
-                    $('#add').html('<i class="fas fa-plus"></i>&nbsp;Simpan');
+                    $('#add').html('<i class="fas fa-save"></i>&nbsp;Simpan');
                     ini.removeAttr('disabled');
                     ini.html('<i class="fas fa-edit"></i>&nbsp;Edit');
                 }
@@ -114,10 +105,6 @@
             e.preventDefault();
 
             $('#inpnama').attr('required', 'required');
-            $('#inpurl').attr('required', 'required');
-            $('#inplatitude').attr('required', 'required');
-            $('#inplongitude').attr('required', 'required');
-            $('#inpketerangan').attr('required', 'required');
 
             if ($('#form-upd').parsley().isValid() == true) {
                 $.ajax({
@@ -163,7 +150,7 @@
                     if (del) {
                         $.ajax({
                             type: "post",
-                            url: "<?= admin_url() ?>kecamatan/del",
+                            url: "<?= admin_url() ?>perkebunan/del",
                             dataType: 'json',
                             data: {
                                 id: ini.data('id')

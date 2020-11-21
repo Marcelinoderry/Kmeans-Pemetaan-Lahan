@@ -4,7 +4,7 @@ class M_kecamatan extends CI_Model
 {
     public function getAll()
     {
-        $result = $this->db->query("SELECT * FROM tb_kecamatan")->result();
+        $result = $this->db->query("SELECT * FROM tb_kecamatan ORDER BY kd_kecamatan")->result();
         return $result;
     }
 }

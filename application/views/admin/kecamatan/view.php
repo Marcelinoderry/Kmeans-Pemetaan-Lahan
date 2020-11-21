@@ -35,6 +35,10 @@
                         <input type="hidden" id="inpidkecamatan">
 
                         <div class="form-group">
+                            <label for="inpkode">Kode</label>
+                            <input type="text" class="form-control" name="inpkode" id="inpkode" value="<?= get_kode_urut('tb_kecamatan', 'KEC') ?>" readonly="readonly">
+                        </div>
+                        <div class="form-group">
                             <label for="inpnama">Nama *</label>
                             <input type="text" class="form-control" name="inpnama" id="inpnama" placeholder="Masukkan kecamatan">
                         </div>
