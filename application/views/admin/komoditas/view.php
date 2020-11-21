@@ -29,7 +29,7 @@
             <div class="card">
                 <div class="card-header">
                     <button class="btn btn-success btn-sm" type="submit" name="add" id="add"><i class="fa fa-download"></i> Unduh</button>
-                    <button class="btn btn-primary btn-sm" type="submit" name="add" id="add"><i class="fa fa-upload"></i> Unggah</button>
+                    <a href="<?= admin_url() ?>komoditas/unggah" class="btn btn-primary btn-sm"><i class="fa fa-upload"></i>&nbsp;Unggah</a>
                 </div>
                 <div class="card-block">
                     <div class="table-responsive">

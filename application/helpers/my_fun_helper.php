@@ -33,6 +33,17 @@ if (!function_exists('get_kode_urut')) {
     }
 }
 
+// untuk hapus baris yang kosong
+if (!function_exists('jika_baris_kosong')) {
+    function jika_baris_kosong($row)
+    {
+        foreach ($row as $cell) {
+            if (null !== $cell) return false;
+        }
+        return true;
+    }
+}
+
 if (!function_exists('waktu')) {
     function waktu($wkt)
     {

@@ -25,6 +25,48 @@ class Komoditas extends MY_Controller
 
         $this->load->view('admin/base', $data);
     }
+    
+    // untuk tampilan unggah
+    public function unggah()
+    {
+        $data = [
+            'halaman' => 'Unggah',
+            'content' => 'admin/komoditas/unggah',
+            'css'     => 'admin/komoditas/css/unggah',
+            'js'      => 'admin/komoditas/js/unggah'
+        ];
+
+        $this->load->view('admin/base', $data);
+    }
+
+    // untuk proses upload
+    public function upload()
+    {
+        $filePath    = $_FILES['inpfile']['tmp_name'];
+        $excel       = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        $spreadsheet = $excel->load($filePath);
+        $sheetData   = $spreadsheet->getActiveSheet()->toArray();
+
+        for ($i = 1; $i < count($sheetData); $i++) {
+            $kecamatan  = $sheetData[$i][0];
+            $perkebunan = $sheetData[$i][1];
+            $bulan      = $sheetData[$i][2];
+            $tahun      = $sheetData[$i][3];
+            $hasil      = $sheetData[$i][4];
+
+            $data[] = [
+                'kecamatan'  => $kecamatan,
+                'perkebunan' => $perkebunan,
+                'bulan'      => $bulan,
+                'tahun'      => $tahun,
+                'hasil'      => $hasil
+            ];
+        }
+
+        $response = ['data' => $data];
+        
+        $this->_response($response);
+    }
 
     // untuk get data by id
     public function get()
