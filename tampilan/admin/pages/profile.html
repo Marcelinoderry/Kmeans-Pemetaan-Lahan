@@ -1,0 +1,452 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+      <title>Adminty - Premium Admin Template by Colorlib </title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="description" content="#">
+      <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+      <meta name="author" content="#">
+      <!-- Favicon icon -->
+      <link rel="icon" href="..\files\assets\images\favicon.ico" type="image/x-icon">
+      <!-- Google font--><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+      <!-- Required Fremwork -->
+      <link rel="stylesheet" type="text/css" href="..\files\bower_components\bootstrap\css\bootstrap.min.css">
+      <!-- Required Fremwork -->
+      <link rel="stylesheet" type="text/css" href="..\files\bower_components\font-awesome\css\font-awesome.min.css">
+      <!-- Date-time picker css -->
+      <link rel="stylesheet" type="text/css" href="..\files\assets\pages\advance-elements\css\bootstrap-datetimepicker.css">
+      <!-- Date-range picker css  -->
+      <link rel="stylesheet" type="text/css" href="..\files\bower_components\bootstrap-daterangepicker\css\daterangepicker.css">
+      <!-- Date-Dropper css -->
+      <link rel="stylesheet" type="text/css" href="..\files\bower_components\datedropper\css\datedropper.min.css">
+      <!-- Data Table Css -->
+      <link rel="stylesheet" type="text/css" href="..\files\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css">
+      <!-- themify-icons line icon -->
+      <link rel="stylesheet" type="text/css" href="..\files\assets\icon\themify-icons\themify-icons.css">
+      <!-- ico font -->
+      <link rel="stylesheet" type="text/css" href="..\files\assets\icon\icofont\css\icofont.css">
+      <!-- feather Awesome -->
+      <link rel="stylesheet" type="text/css" href="..\files\assets\icon\feather\css\feather.css">
+      <!-- Style.css -->
+      <link rel="stylesheet" type="text/css" href="..\files\assets\css\style.css">
+      <link rel="stylesheet" type="text/css" href="..\files\assets\css\jquery.mCustomScrollbar.css">
+  </head>
+
+  <body>
+  <!-- Pre-loader start -->
+  <div class="theme-loader">
+    <div class="ball-scale">
+      <div class='contain'>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="pcoded" class="pcoded">
+    <div class="pcoded-overlay-box"></div>
+    <div class="pcoded-container navbar-wrapper">
+      <!-- Navbar Top -->
+      <nav class="navbar header-navbar pcoded-header">
+        <div class="navbar-wrapper">
+          <!-- Mobile View-->
+          <div class="navbar-logo">
+            <a class="mobile-menu" id="mobile-collapse" href="#!">
+              <i class="feather icon-menu"></i>
+            </a>
+            <a href="index.html">
+              PoPo[L] <!-- <img class="img-fluid" src="..\files\assets\images\logo.png" alt="Theme-Logo"> -->
+            </a>
+            <a class="mobile-options">
+              <i class="feather icon-more-horizontal"></i>
+            </a>
+          </div>
+          <div class="navbar-container container-fluid">
+            <ul class="nav-left">
+              <li class="header-search">
+                <div class="main-search morphsearch-search">
+                  <div class="input-group">
+                    <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#!" onclick="javascript:toggleFullScreen()">
+                  <i class="feather icon-maximize full-screen"></i>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav-right">
+              <li class="user-profile header-notification">
+                <div class="dropdown-primary dropdown">
+                  <div class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="..\files\assets\images\manager1.png" class="img-radius" alt="User-Profile-Image">
+                    <span>John Doe</span>
+                    <i class="feather icon-chevron-down"></i>
+                  </div>
+                  <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                    <li>
+                      <a href="">
+                        <i class="feather icon-user"></i> Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a href="auth-normal-sign-in.htm">
+                        <i class="feather icon-log-out"></i> Logout
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+        <div class="pcoded-main-container">
+          <div class="pcoded-wrapper">
+            <!-- Navbar Left -->
+            <nav class="pcoded-navbar">
+              <div class="pcoded-inner-navbar main-menu">
+                <div class="pcoded-navigatio-lavel">Dashboard</div>
+                <ul class="pcoded-item pcoded-left-item">
+                  <li class=" ">
+                    <a href="index.html">
+                      <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                      <span class="pcoded-mtext">Dashboard</span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="pcoded-navigatio-lavel">Tables</div>
+                <ul class="pcoded-item pcoded-left-item">
+                  <li class="pcoded-hasmenu pcoded-trigger">
+                    <a href="javascript:void(0)">
+                      <span class="pcoded-micon"><i class="feather icon-inbox"></i></span>
+                      <span class="pcoded-mtext">Data Master</span>
+                      <span class="pcoded-mcaret"></span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                      <li>
+                        <a href="dm-kecamatan.html">
+                          <span class="pcoded-mtext">Kecamatan</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="dm-peta.html">
+                          <span class="pcoded-mtext">Peta</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <!-- Content -->
+            <div class="pcoded-content">
+              <div class="pcoded-inner-content">
+                <!-- Main-body start -->
+                <div class="main-body">
+                  <div class="page-wrapper">
+                    <div class="page-body">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="tab-header card">
+                            <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist" id="mytab">
+                              <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#personal" role="tab">My Profile</a>
+                                <div class="slide"></div>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#binfo" role="tab">User's Services</a>
+                                <div class="slide"></div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="tab-content">
+                            <div class="tab-pane active" id="personal" role="tabpanel">
+                              <div class="card">
+                                <div class="card-header">
+                                  <button id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right">
+                                    <i class="icofont icofont-edit"></i>
+                                  </button>
+                                </div>
+                                <div class="card-block">
+                                  <div class="view-info">
+                                    <div class="row">
+                                      <div class="col-lg-12">
+                                        <div class="general-info">
+                                          <div class="row">
+                                            <div class="col-lg-12 col-xl-6">
+                                              <div class="table-responsive">
+                                                <table class="table m-0">
+                                                  <tbody>
+                                                    <tr>
+                                                      <th scope="row">Full Name</th>
+                                                      <td>Josephine Villa</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Gender</th>
+                                                      <td>Female</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Birth Date</th>
+                                                      <td>October 25th, 1990</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Marital Status</th>
+                                                      <td>Single</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Location</th>
+                                                      <td>New York, USA</td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </div>
+                                            </div>
+                                            <div class="col-lg-12 col-xl-6">
+                                              <div class="table-responsive">
+                                                <table class="table">
+                                                  <tbody>
+                                                    <tr>
+                                                      <th scope="row">Email</th>
+                                                      <td><a href="#!"><span class="__cf_email__" data-cfemail="4206272f2d02273a232f322e276c212d2f">[email&#160;protected]</span></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Mobile Number</th>
+                                                      <td>(0123) - 4567891</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Twitter</th>
+                                                      <td>@xyz</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Skype</th>
+                                                      <td>demo.skype</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Website</th>
+                                                      <td><a href="#!">www.demo.com</a></td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- profile edit -->
+                                  <div class="edit-info">
+                                    <div class="row">
+                                      <div class="col-lg-12">
+                                        <div class="general-info">
+                                          <div class="row">
+                                            <div class="col-lg-6">
+                                              <table class="table">
+                                                <tbody>
+                                                  <tr>
+                                                    <td>
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon"><i class="icofont icofont-user"></i></span>
+                                                        <input type="text" class="form-control" placeholder="Full Name">
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <div class="form-radio">
+                                                        <div class="group-add-on">
+                                                          <div class="radio radiofill radio-inline">
+                                                            <label>
+                                                              <input type="radio" name="radio" checked=""><i class="helper"></i> Male
+                                                            </label>
+                                                          </div>
+                                                          <div class="radio radiofill radio-inline">
+                                                            <label>
+                                                              <input type="radio" name="radio"><i class="helper"></i> Female
+                                                            </label>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <input id="dropper-default" class="form-control" type="text" placeholder="Select Your Birth Date">
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <select id="hello-single" class="form-control">
+                                                        <option value="">---- Marital Status ----</option>
+                                                        <option value="married">Married</option>
+                                                        <option value="unmarried">Unmarried</option>
+                                                      </select>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon"><i class="icofont icofont-location-pin"></i></span>
+                                                        <input type="text" class="form-control" placeholder="Address">
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                            <div class="col-lg-6">
+                                              <table class="table">
+                                                <tbody>
+                                                  <tr>
+                                                    <td>
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon"><i class="icofont icofont-mobile-phone"></i></span>
+                                                        <input type="text" class="form-control" placeholder="Mobile Number">
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon"><i class="icofont icofont-social-twitter"></i></span>
+                                                        <input type="text" class="form-control" placeholder="Twitter Id">
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon" id="basic-addon1">@</span>
+                                                        <input type="text" class="form-control" placeholder="Email">
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon"><i class="icofont icofont-social-skype"></i></span>
+                                                        <input type="email" class="form-control" placeholder="Skype Id">
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon"><i class="icofont icofont-earth"></i></span>
+                                                        <input type="text" class="form-control" placeholder="website">
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                          <div class="text-center">
+                                            <a href="#!" class="btn btn-primary waves-effect waves-light m-r-20">Save</a>
+                                            <a href="#!" id="edit-cancel" class="btn btn-default waves-effect">Cancel</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Services -->
+                            <div class="tab-pane" id="binfo" role="tabpanel">
+                              <div class="card">
+                                <div class="card-header">
+                                  <h5 class="card-header-text">User Services</h5>
+                                </div>
+                                <div class="card-block">
+                                  <!-- content -->
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Required Jquery -->
+  </script><script type="text/javascript" src="..\files\bower_components\jquery\js\jquery.min.js"></script>
+  <script type="text/javascript" src="..\files\bower_components\jquery-ui\js\jquery-ui.min.js"></script>
+  <script type="text/javascript" src="..\files\bower_components\popper.js\js\popper.min.js"></script>
+  <script type="text/javascript" src="..\files\bower_components\bootstrap\js\bootstrap.min.js"></script>
+  <!-- jquery slimscroll js -->
+  <script type="text/javascript" src="..\files\bower_components\jquery-slimscroll\js\jquery.slimscroll.js"></script>
+  <!-- modernizr js -->
+  <script type="text/javascript" src="..\files\bower_components\modernizr\js\modernizr.js"></script>
+  <script type="text/javascript" src="..\files\bower_components\modernizr\js\css-scrollbars.js"></script>
+  <!-- Bootstrap date-time-picker js -->
+  <script type="text/javascript" src="..\files\assets\pages\advance-elements\moment-with-locales.min.js"></script>
+  <script type="text/javascript" src="..\files\bower_components\bootstrap-datepicker\js\bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript" src="..\files\assets\pages\advance-elements\bootstrap-datetimepicker.min.js"></script>
+  <!-- Date-range picker js -->
+  <script type="text/javascript" src="..\files\bower_components\bootstrap-daterangepicker\js\daterangepicker.js"></script>
+  <!-- Date-dropper js -->
+  <script type="text/javascript" src="..\files\bower_components\datedropper\js\datedropper.min.js"></script>
+  <!-- data-table js -->
+  <script src="..\files\bower_components\datatables.net\js\jquery.dataTables.min.js"></script>
+  <script src="..\files\bower_components\datatables.net-bs4\js\dataTables.bootstrap4.min.js"></script>
+  <script src="..\files\bower_components\datatables.net-responsive\js\dataTables.responsive.min.js"></script>
+  <script src="..\files\bower_components\datatables.net-responsive-bs4\js\responsive.bootstrap4.min.js"></script>
+  <!-- echart js -->
+  <script src="..\files\assets\pages\chart\echarts\js\echarts-all.js" type="text/javascript"></script>
+  <!-- i18next.min.js -->
+  <script type="text/javascript" src="..\files\bower_components\i18next\js\i18next.min.js"></script>
+  <script type="text/javascript" src="..\files\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js"></script>
+  <script type="text/javascript" src="..\files\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js"></script>
+  <script type="text/javascript" src="..\files\bower_components\jquery-i18next\js\jquery-i18next.min.js"></script>
+  <script src="..\files\assets\pages\user-profile.js"></script>
+  <script src="..\files\assets\js\pcoded.min.js"></script>
+  <script src="..\files\assets\js\vartical-layout.min.js"></script>
+  <script src="..\files\assets\js\jquery.mCustomScrollbar.concat.min.js"></script>
+  <!-- Custom js -->
+  <script type="text/javascript" src="..\files\assets\js\script.js"></script>
+</body>
+</html>
