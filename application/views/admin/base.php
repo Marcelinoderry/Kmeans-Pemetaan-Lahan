@@ -75,8 +75,7 @@
                             <i class="feather icon-menu"></i>
                         </a>
                         <a href="index.html">
-                            <!-- <img class="img-fluid" src="..\files\assets\images\logo.png" alt="Theme-Logo"> -->
-                            PoPo[L]
+                            <h5>Sistem Informasi</h5>
                         </a>
                         <a class="mobile-options">
                             <i class="feather icon-more-horizontal"></i>
@@ -143,9 +142,24 @@
                             <div class="pcoded-navigatio-lavel">Master</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="">
+                                    <a href="<?= admin_url() ?>perkebunan">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Perkebunan</span>
+                                    </a>
+                                </li>
+                                <li class="">
                                     <a href="<?= admin_url() ?>kecamatan">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Kecamatan</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="pcoded-navigatio-lavel">Pustaka</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="">
+                                    <a href="<?= admin_url() ?>komoditas">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Komoditas</span>
                                     </a>
                                 </li>
                                 <li class="">
