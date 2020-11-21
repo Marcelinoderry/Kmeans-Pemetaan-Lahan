@@ -35,23 +35,23 @@
                         <input type="hidden" id="inpidkecamatan">
 
                         <div class="form-group">
-                            <label for="inpnama">Nama</label>
+                            <label for="inpnama">Nama *</label>
                             <input type="text" class="form-control" name="inpnama" id="inpnama" placeholder="Masukkan kecamatan">
                         </div>
                         <div class="form-group">
-                            <label for="inpurl">Url</label>
+                            <label for="inpurl">Url *</label>
                             <input type="text" class="form-control" name="inpurl" id="inpurl" placeholder="Masukkan url">
                         </div>
                         <div class="form-group">
-                            <label for="inplatitude">Latitude</label>
+                            <label for="inplatitude">Latitude *</label>
                             <input type="text" class="form-control" name="inplatitude" id="inplatitude" placeholder="Masukkan latitude">
                         </div>
                         <div class="form-group">
-                            <label for="inplongitude">Longitude</label>
+                            <label for="inplongitude">Longitude *</label>
                             <input type="text" class="form-control" name="inplongitude" id="inplongitude" placeholder="Masukkan longitude">
                         </div>
                         <div class="form-group">
-                            <label for="inpketerangan">Keterangan</label>
+                            <label for="inpketerangan">Keterangan *</label>
                             <textarea class="form-control" name="inpketerangan" id="inpketerangan" placeholder="Masukkan keterangan kecamatan"></textarea>
                         </div>
                         <button class="btn btn-success btn-sm" type="submit" name="add" id="add"><i class="fa fa-plus"></i> Add</button>
