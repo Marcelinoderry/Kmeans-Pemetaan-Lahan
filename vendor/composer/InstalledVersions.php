@@ -1,5 +1,15 @@
 <?php
 
+
+
+
+
+
+
+
+
+
+
 namespace Composer;
 
 use Composer\Semver\VersionParser;
@@ -19,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'e3d4898ea1e8040af341aeac36f505989e594c74',
+    'reference' => '0a453350bb5e3345ab8c5979f6764d70ae6a79e5',
     'name' => '__root__',
   ),
   'versions' => 
@@ -31,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'e3d4898ea1e8040af341aeac36f505989e594c74',
+      'reference' => '0a453350bb5e3345ab8c5979f6764d70ae6a79e5',
     ),
     'maennchen/zipstream-php' => 
     array (
