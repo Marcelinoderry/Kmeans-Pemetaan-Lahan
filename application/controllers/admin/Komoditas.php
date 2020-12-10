@@ -40,14 +40,20 @@ class Komoditas extends MY_Controller
             'Id Kecamatan',
             'Kecamatan',
             'Kode Perkebunan',
-            'Jenis Komoditi'
+            'Jenis Komoditi',
+            'Bulan',
+            'Tahun',
+            'Hasil',
         ];
 
         $kode = [
             'A',
             'B',
             'C',
-            'D'
+            'D',
+            'E',
+            'F',
+            'G',
         ];
 
         // begin:: head
@@ -116,7 +122,7 @@ class Komoditas extends MY_Controller
             $kecamatan  = $sheetData[$i][0];
             $perkebunan = $sheetData[$i][2];
             $bulan      = 'test';
-            $tahun      = 'test';
+            $tahun      = $sheetData[$i][5];
             $hasil      = 'test';
 
             $rKecamatan = $this->m_kecamatan->getWhere($kecamatan)->nama;

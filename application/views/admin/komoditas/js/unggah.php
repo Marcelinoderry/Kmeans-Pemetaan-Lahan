@@ -51,8 +51,7 @@
 
                         $('#datatabel').DataTable({
                             data: response.data,
-                            columns: [
-                                {
+                            columns: [{
                                     data: null,
                                     render: function(data, type, row) {
                                         return ` <input type="checkbox" class="pilih" data-kecamatan="` + row.kecamatan + `"> `;
@@ -75,15 +74,8 @@
                                 }
                             ]
                         });
-                        // swal({
-                        //         title: response.title,
-                        //         text: response.text,
-                        //         icon: response.type,
-                        //         button: response.button,
-                        //     })
-                        //     .then((value) => {
-                        //         location.reload();
-                        //     });
+                        $('#add').removeAttr('disabled');
+                        $('#add').html('<i class="fa fa-plus"></i> Add');
                     }
                 })
             }
