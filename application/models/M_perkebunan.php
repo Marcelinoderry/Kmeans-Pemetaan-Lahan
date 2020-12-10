@@ -7,4 +7,10 @@ class M_perkebunan extends CI_Model
         $result = $this->db->query("SELECT * FROM tb_perkebunan ORDER BY kd_perkebunan")->result();
         return $result;
     }
+
+    public function getWhere($kd)
+    {
+        $result = $this->db->query("SELECT * FROM tb_perkebunan WHERE kd_perkebunan = '$kd'")->row();
+        return $result;
+    }
 }

@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class Komoditas extends MY_Controller
 {
     public function __construct()
@@ -10,6 +13,7 @@ class Komoditas extends MY_Controller
         // untuk load model
         $this->load->model('crud');
         $this->load->model('m_perkebunan');
+        $this->load->model('m_kecamatan');
     }
 
     // untuk default
@@ -25,7 +29,68 @@ class Komoditas extends MY_Controller
 
         $this->load->view('admin/base', $data);
     }
-    
+
+    // untuk download format excel
+    public function unduh()
+    {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $kolom = [
+            'Id Kecamatan',
+            'Kecamatan',
+            'Kode Perkebunan',
+            'Jenis Komoditi'
+        ];
+
+        $kode = [
+            'A',
+            'B',
+            'C',
+            'D'
+        ];
+
+        // begin:: head
+        for ($i = 0; $i < count($kode); $i++) {
+            $sheet->setCellValue("$kode[$i]1", $kolom[$i]);
+            $sheet->getColumnDimension($kode[$i])->setAutoSize(true);
+        }
+        // end:: head
+
+        // begin:: body
+        $getKecamatan = $this->m_kecamatan->getAll(); // untuk mengambil kecamatan
+        $getPerkebunan = $this->m_perkebunan->getAll(); // untuk mengambil perkebunan
+
+        for ($j = 0; $j < count($getKecamatan); $j++) {
+            for ($k = 0; $k < count($getPerkebunan); $k++) {
+                $results[] = [
+                    'id_kecamatan'  => $getKecamatan[$j]->id_kecamatan,
+                    'kecamatan'     => $getKecamatan[$j]->nama,
+                    'kd_perkebunan' => $getPerkebunan[$k]->kd_perkebunan,
+                    'perkebunan'    => $getPerkebunan[$k]->nama,
+                ];
+            }
+        }
+
+        $baris = 2;
+        foreach ($results as $key => $value) {
+            $sheet->setCellValue('A' . $baris, $value['id_kecamatan']);
+            $sheet->setCellValue('B' . $baris, $value['kecamatan']);
+            $sheet->setCellValue('C' . $baris, $value['kd_perkebunan']);
+            $sheet->setCellValue('D' . $baris, $value['perkebunan']);
+
+            $baris++;
+        }
+        // end:: body
+
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'format-laporan';
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+        header('Cache-Control: max-age=0');
+        $writer->save('php://output');
+    }
+
     // untuk tampilan unggah
     public function unggah()
     {
@@ -49,14 +114,17 @@ class Komoditas extends MY_Controller
 
         for ($i = 1; $i < count($sheetData); $i++) {
             $kecamatan  = $sheetData[$i][0];
-            $perkebunan = $sheetData[$i][1];
-            $bulan      = $sheetData[$i][2];
-            $tahun      = $sheetData[$i][3];
-            $hasil      = $sheetData[$i][4];
+            $perkebunan = $sheetData[$i][2];
+            $bulan      = 'test';
+            $tahun      = 'test';
+            $hasil      = 'test';
+
+            $rKecamatan = $this->m_kecamatan->getWhere($kecamatan)->nama;
+            $rPerkebunan = $this->m_perkebunan->getWhere($perkebunan)->nama;
 
             $data[] = [
-                'kecamatan'  => $kecamatan,
-                'perkebunan' => $perkebunan,
+                'kecamatan'  => $rKecamatan,
+                'perkebunan' => $rPerkebunan,
                 'bulan'      => $bulan,
                 'tahun'      => $tahun,
                 'hasil'      => $hasil
@@ -64,7 +132,7 @@ class Komoditas extends MY_Controller
         }
 
         $response = ['data' => $data];
-        
+
         $this->_response($response);
     }
 

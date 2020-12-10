@@ -28,7 +28,7 @@
             <!-- begin:: table -->
             <div class="card">
                 <div class="card-header">
-                    <button class="btn btn-success btn-sm" type="submit" name="add" id="add"><i class="fa fa-download"></i> Unduh</button>
+                    <a href="<?= admin_url() ?>komoditas/unduh" class="btn btn-success btn-sm"><i class="fa fa-download"></i>&nbsp;Unduh</a>
                     <a href="<?= admin_url() ?>komoditas/unggah" class="btn btn-primary btn-sm"><i class="fa fa-upload"></i>&nbsp;Unggah</a>
                 </div>
                 <div class="card-block">
