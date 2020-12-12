@@ -21,22 +21,16 @@ class Auth extends CI_Controller
     // untuk mengecek data login
     public function check_validation()
     {
-        $input = $this->input->post(NULL, TRUE);
+        $this->form_validation->set_rules('username', 'Username', 'trim|required');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
-        if (isset($input['login'])) {
-            $this->form_validation->set_rules('username', 'Username', 'trim|required');
-            $this->form_validation->set_rules('password', 'Password', 'trim|required');
-
-            if ($this->form_validation->run() == FALSE) {
-                $this->load->view('home/login/view');
-            } else {
-                $username = htmlspecialchars($this->input->post('username', TRUE), ENT_QUOTES);
-                $password = htmlspecialchars($this->input->post('password', TRUE), ENT_QUOTES);
-
-                $this->auth($username, $password);
-            }
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('home/login/view');
         } else {
-            echo "tidak ada";
+            $username = htmlspecialchars($this->input->post('username', TRUE), ENT_QUOTES);
+            $password = htmlspecialchars($this->input->post('password', TRUE), ENT_QUOTES);
+
+            $this->auth($username, $password);
         }
     }
 
@@ -61,13 +55,13 @@ class Auth extends CI_Controller
 
                     $this->session->set_userdata($data);
 
-                    redirect(admin_url(). 'dashboard?&berhasil');
+                    exit(json_encode(array('status' => true, 'link' => admin_url() . 'dashboard')));
                 }
             } else {
-                echo "username atau password Anda salah!";
+                exit(json_encode(['title' => 'Gagal!', 'text' => 'username atau password Anda salah!', 'type' => 'error', 'button' => 'Ok!']));
             }
         } else {
-            echo "tidak ada";
+            exit(json_encode(['title' => 'Gagal!', 'text' => 'username atau password Anda salah!', 'type' => 'error', 'button' => 'Ok!']));
         }
     }
 

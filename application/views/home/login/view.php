@@ -10,13 +10,13 @@
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/icon/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/icon/icofont/css/icofont.css">
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/css/style.css">
-    
+
     <style>
         .error {
             color: red;
         }
     </style>
-    
+
     <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/jquery/js/jquery.min.js"></script>
 </head>
 
@@ -62,7 +62,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <?= form_open('auth/check_validation', array('class' => 'md-float-material form-material')) ?>
+                    <?= form_open('auth/check_validation', array('id' => 'form-login', 'class' => 'md-float-material form-material', 'method' => 'post')) ?>
                     <div class="text-center">
                         <h2 style="color: white; font-weight: bold;">Sistem Informasi </h2>
                         <h4 style="color: white; font-weight: bold;">Komoditasi dan Pemetaan Perkebunan</h4>
@@ -106,6 +106,10 @@
     <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/pcoded.min.js"></script>
     <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/vartical-layout.min.js"></script>
     <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/script.min.js"></script>
+    <!-- cdn -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -115,9 +119,44 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-23581568-13');
+
+        var untukTambahData = function() {
+            $('#form-login').parsley();
+
+            $('#form-login').submit(function(e) {
+                e.preventDefault();
+
+                $('#username').attr('required', 'required');
+                $('#password').attr('required', 'required');
+
+                if ($('#form-login').parsley().isValid() == true) {
+                    $.ajax({
+                        method: $(this).attr('method'),
+                        url: $(this).attr('action'),
+                        data: $(this).serialize(),
+                        dataType: 'json',
+                        beforeSend: function() {
+                            $('#login').val('Wait');
+                        },
+                        success: function(data) {
+                            if (data.status == true) {
+                                window.location = data.link;
+                            } else {
+                                $('#login').val('Login');
+
+                                swal({
+                                    title: data.title,
+                                    text: data.text,
+                                    icon: data.type,
+                                    button: data.button,
+                                });
+                            }
+                        }
+                    })
+                }
+            });
+        }();
     </script>
 
-
 </body>
-
 </html>
