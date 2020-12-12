@@ -104,12 +104,12 @@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <span>Admin</span>
+                                        <span><?= $this->session->userdata('name') ?></span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                         <li>
-                                            <a href="#">
+                                            <a href="<?= admin_url() ?>profil">
                                                 <i class="feather icon-user"></i> Profile
                                             </a>
                                         </li>
