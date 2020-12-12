@@ -136,8 +136,15 @@
                     success: function(response) {
                         if (response.status == true) {
                             $.unblockUI();
-                            alert(response.msg);
-                            window.location = '<?= admin_url() ?>/komoditas'
+                            swal({
+                                title: response.title,
+                                text: response.text,
+                                icon: response.type,
+                                button: response.button,
+                            })
+                            .then((value) => {
+                                window.location = '<?= admin_url() ?>/komoditas'
+                            });
                         } else {
                             $.gritter.add({
                                 title: 'Info..!!',

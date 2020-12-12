@@ -166,9 +166,9 @@ class Komoditas extends MY_Controller
         $this->db->trans_complete();
 
         if ($this->db->trans_status() === TRUE) {
-            $response = ['status' => true, 'msg' => 'Data Sukses di Simpan!'];
+            $response = ['status' => true, 'title' => 'Berhasil!', 'text' => 'Data Sukses di Simpan!', 'type' => 'success', 'button' => 'Ok!'];
         } else {
-            $response = ['status' => false, 'msg' => 'Data Gagal di Simpan!'];
+            $response = ['status' => false, 'title' => 'Gagal!', 'text' => 'Gagal Simpan!', 'type' => 'error', 'button' => 'Ok!'];
         }
 
         $this->_response($response);
