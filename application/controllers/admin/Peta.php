@@ -28,6 +28,8 @@ class Peta extends MY_Controller
     public function get_peta()
     {
         $result = $this->m_kecamatan->getAll();
+
+        // untuk response
         $this->_response($result);
     }
 }

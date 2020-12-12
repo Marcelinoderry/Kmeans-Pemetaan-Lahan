@@ -32,30 +32,38 @@
                     <a href="<?= admin_url() ?>komoditas/unggah" class="btn btn-primary btn-sm"><i class="fa fa-upload"></i>&nbsp;Unggah</a>
                 </div>
                 <div class="card-block">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-striped" id="datatabel">
-                            <thead>
-                                <tr>
-                                    <th scope="col">No.</th>
-                                    <th scope="col">Kecamatan</th>
-                                    <th scope="col">Perkebunan</th>
-                                    <th scope="col">Tahun</th>
-                                    <th scope="col">Jumlah (Ton)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $no = 1;
-                                foreach ($data as $rows) : ?>
-                                    <tr>
-                                        <td><?= $no++ ?></td>
-                                        <td><?= $rows->kecamatan ?></td>
-                                        <td><?= $rows->perkebunan ?></td>
-                                        <td><?= $rows->tahun ?></td>
-                                        <td><?= $rows->jumlah ?></td>
-                                    </tr>
+
+                    <!-- begin:: filter -->
+                    <div class="form-row pb-4">
+                        <div class="col">
+                            <select class="form-control" name="kecamatan" id="kecamatan">
+                                <option value="">- Semua -</option>
+                                <?php foreach ($kecamatan as $key => $value) : ?>
+                                    <option value="<?= $value->kd_kecamatan ?>"><?= $value->nama ?></option>
                                 <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-control" name="perkebunan" id="perkebunan">
+                                <option value="">- Semua -</option>
+                                <?php foreach ($perkebunan as $key => $value) : ?>
+                                    <option value="<?= $value->kd_perkebunan ?>"><?= $value->nama ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-control" name="tahun" id="tahun">
+                                <option value="">- Semua -</option>
+                                <?php foreach ($tahun as $key => $value) : ?>
+                                    <option value="<?= $value->tahun ?>"><?= $value->tahun ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- end:: filter -->
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped" id="datatabel"></table>
                     </div>
                 </div>
             </div>

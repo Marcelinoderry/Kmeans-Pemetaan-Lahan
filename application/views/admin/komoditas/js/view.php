@@ -11,8 +11,67 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
 
 <script>
+    var tabel = null;
+
     // untuk tabel
-    $('#datatabel').DataTable();
+    var untukDatatable = function() {
+        tabel = $('#datatabel').DataTable({
+            responsive: true,
+            lengthMenu: [5, 10, 25, 50],
+            pageLength: 10,
+            search: {
+                smart: true
+            },
+            searchDelay: 500,
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: '<?= admin_url() ?>komoditas/get_data_dt',
+                type: 'POST',
+                data: function(d) {
+                    ($('#kecamatan').val() != '') ? d.kecamatan = $('#kecamatan').val().trim(): '';
+                    ($('#perkebunan').val() != '') ? d.perkebunan = $('#perkebunan').val().trim(): '';
+                    ($('#tahun').val() != '') ? d.tahun = $('#tahun').val().trim(): '';
+                }
+            },
+            columns: [{
+                    title: 'Kecamatan',
+                    data: 'kecamatan',
+                    className: 'text-center',
+                },
+                {
+                    title: 'Perkebunan',
+                    data: 'perkebunan',
+                    className: 'text-center',
+                },
+                {
+                    title: 'Tahun',
+                    data: 'tahun',
+                    className: 'text-center',
+                },
+                {
+                    title: 'Jumlah (Ton)',
+                    data: 'jumlah',
+                    className: 'text-center',
+                },
+            ],
+        });
+
+        $("#kecamatan").change(function(e) {
+            e.preventDefault();
+            tabel.ajax.reload();
+        });
+
+        $("#perkebunan").change(function(e) {
+            e.preventDefault();
+            tabel.ajax.reload();
+        });
+
+        $("#tahun").change(function(e) {
+            e.preventDefault();
+            tabel.ajax.reload();
+        });
+    }();
 
     // untuk tambah data
     var untukTambahData = function() {

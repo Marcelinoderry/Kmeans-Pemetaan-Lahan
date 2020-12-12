@@ -21,14 +21,42 @@ class Komoditas extends MY_Controller
     public function index()
     {
         $data = [
-            'halaman' => 'Komoditas',
-            'content' => 'admin/komoditas/view',
-            'data'    => $this->m_komoditas->getAll(),
-            'css'     => 'admin/komoditas/css/view',
-            'js'      => 'admin/komoditas/js/view'
+            'halaman'    => 'Komoditas',
+            'content'    => 'admin/komoditas/view',
+            'css'        => 'admin/komoditas/css/view',
+            'js'         => 'admin/komoditas/js/view',
+            'kecamatan'  => $this->m_kecamatan->getAll(),
+            'perkebunan' => $this->m_perkebunan->getAll(),
+            'tahun'      => $this->m_komoditas->getYear(),
         ];
 
         $this->load->view('admin/base', $data);
+    }
+
+    // untuk get data serverside
+    public function get_data_dt()
+    {
+        $this->datatables->select('tb_kecamatan.nama AS kecamatan, tb_perkebunan.nama AS perkebunan, tb_komoditas.tahun, tb_komoditas.jumlah');
+        $this->datatables->join('tb_kecamatan', 'tb_komoditas.kd_kecamatan = tb_kecamatan.kd_kecamatan', 'left');
+        $this->datatables->join('tb_perkebunan', 'tb_komoditas.kd_perkebunan = tb_perkebunan.kd_perkebunan', 'left');
+
+        // untuk filter
+        if ($this->input->post('kecamatan')) {
+            $this->datatables->where('tb_kecamatan.kd_kecamatan', $this->input->post('kecamatan'));
+        }
+
+        if ($this->input->post('perkebunan')) {
+            $this->datatables->where('tb_perkebunan.kd_perkebunan', $this->input->post('perkebunan'));
+        }
+
+        if ($this->input->post('tahun')) {
+            $this->datatables->where('tb_komoditas.tahun', $this->input->post('tahun'));
+        }
+
+        $this->datatables->order_by('tb_kecamatan.nama');
+        $this->datatables->from('tb_komoditas');
+
+        return print_r($this->datatables->generate());
     }
 
     // untuk download format excel
@@ -138,6 +166,7 @@ class Komoditas extends MY_Controller
 
         $response = ['data' => $data];
 
+        // untuk response
         $this->_response($response);
     }
 
@@ -171,6 +200,7 @@ class Komoditas extends MY_Controller
             $response = ['status' => false, 'title' => 'Gagal!', 'text' => 'Gagal Simpan!', 'type' => 'error', 'button' => 'Ok!'];
         }
 
+        // untuk response
         $this->_response($response);
     }
 

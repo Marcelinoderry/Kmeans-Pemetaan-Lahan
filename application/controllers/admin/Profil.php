@@ -60,6 +60,7 @@ class Profil extends MY_Controller
             $response = ['title' => 'Berhasil!', 'text' => 'Data tidak diubah.', 'type' => 'success', 'button' => 'Ok!'];
         }
 
+        // untuk response
         $this->_response($response);
     }
 }
