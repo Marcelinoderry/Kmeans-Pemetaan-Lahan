@@ -17,9 +17,9 @@ class Profil extends MY_Controller
     {
         $data = [
             'halaman' => 'Profil',
+            'content' => 'admin/profil/view',
             'data'    => $this->m_profil->getWhere($this->session->userdata('id')),
             'css'     => 'admin/profil/css/view',
-            'content' => 'admin/profil/view',
             'js'      => 'admin/profil/js/view'
         ];
 

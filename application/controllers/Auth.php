@@ -54,7 +54,6 @@ class Auth extends CI_Controller
                 if ($row['role'] == 'admin') {
                     $data = [
                         'id'       => $row['id'],
-                        'name'     => $row['name'],
                         'username' => $row['username'],
                         'password' => $password,
                         'role'     => $row['role'],
