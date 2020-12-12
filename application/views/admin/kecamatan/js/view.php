@@ -16,15 +16,6 @@
 
     // untuk tambah data
     var untukTambahData = function() {
-        var parsleyConfig = {
-            errorsContainer: function(parsleyField) {
-                var $err = parsleyField.$element.siblings('#error');
-                return $err;
-            }
-        }
-
-        $('#form-add').parsley(parsleyConfig);
-
         $('#form-add').submit(function(e) {
             e.preventDefault();
 
@@ -101,15 +92,6 @@
 
     // untuk ubah data
     var untukUbahData = function() {
-        var parsleyConfig = {
-            errorsContainer: function(parsleyField) {
-                var $err = parsleyField.$element.siblings('#error');
-                return $err;
-            }
-        }
-
-        $('#form-upd').parsley(parsleyConfig);
-
         $(document).on('submit', '#form-upd', function(e) {
             e.preventDefault();
 

@@ -16,17 +16,21 @@
         ordering: false,
     });
 
-    // untuk tambah data
-    var untukTambahData = function() {
-        var parsleyConfig = {
-            errorsContainer: function(parsleyField) {
-                var $err = parsleyField.$element.siblings('#error');
-                return $err;
+    // apabila dicentang semua
+    var untukCentangSemua = function() {
+        $(document).on('click', '#pilih_semua', function() {
+            var checked = $('.pilih');
+
+            if (checked.not(this).prop('checked', this.checked).is(':checked')) {
+                checked.not(this).prop('checked', true);
+            } else {
+                checked.not(this).prop('checked', false);
             }
-        }
+        });
+    }();
 
-        $('#form-add').parsley(parsleyConfig);
-
+    // untuk import data
+    var untukImportData = function() {
         $('#form-add').submit(function(e) {
             e.preventDefault();
 
@@ -51,10 +55,13 @@
 
                         $('#datatabel').DataTable({
                             data: response.data,
+                            paging: false,
                             columns: [{
                                     data: null,
+                                    className: 'text-center',
+                                    orderable: false,
                                     render: function(data, type, row) {
-                                        return ` <input type="checkbox" class="pilih" data-kecamatan="` + row.kecamatan + `"> `;
+                                        return ` <input type="checkbox" class="pilih" data-kd_kecamatan="` + row.kd_kecamatan + `"  data-kd_perkebunan="` + row.kd_perkebunan + `"  data-tahun="` + row.tahun + `"  data-jumlah="` + row.jumlah + `"> `;
                                     },
                                 },
                                 {
@@ -64,20 +71,90 @@
                                     data: 'perkebunan'
                                 },
                                 {
-                                    data: 'bulan'
-                                },
-                                {
                                     data: 'tahun'
                                 },
                                 {
-                                    data: 'hasil'
+                                    data: 'jumlah'
                                 }
                             ]
                         });
+                        $('#save').removeAttr('disabled');
                         $('#add').removeAttr('disabled');
-                        $('#add').html('<i class="fa fa-plus"></i> Add');
+                        $('#add').html('<i class="fa fa-file-import"></i>&nbsp;Import');
                     }
                 })
+            }
+        });
+    }();
+
+    // untuk simpan data yang dipilih
+    var untukSimpanData = function() {
+        $(document).on('click', '#save', function(e) {
+            var centang = $('.pilih:checked');
+
+            if (centang.length > 0) {
+                // apabila data dicentang
+                var data = [];
+
+                $(centang).each(function() {
+                    var ini = $(this);
+
+                    var get = [
+                        ini.data('kd_kecamatan'),
+                        ini.data('kd_perkebunan'),
+                        ini.data('tahun'),
+                        ini.data('jumlah'),
+                    ];
+
+                    data.push(get);
+                });
+
+                $.ajax({
+                    method: 'POST',
+                    url: "<?= admin_url() ?>komoditas/simpan",
+                    dataType: 'json',
+                    data: {
+                        data: JSON.stringify(data)
+                    },
+                    beforeSend: function() {
+                        $('#simpan').attr('disabled', 'disabled');
+                        $('#simpan').html('<i class="icon-spinner icon-spin"></i> Tunggu...');
+                        $.blockUI({
+                            message: "<h5>Menunggu...</h5>"
+                        }, {
+                            css: {
+                                border: 'none',
+                                padding: '15px',
+                                backgroundColor: '#000',
+                                '-webkit-border-radius': '10px',
+                                '-moz-border-radius': '10px',
+                                opacity: .5,
+                                color: '#fff'
+                            }
+                        });
+                    },
+                    success: function(response) {
+                        if (response.status == true) {
+                            $.unblockUI();
+                            alert(response.msg);
+                            window.location = '<?= admin_url() ?>/komoditas'
+                        } else {
+                            $.gritter.add({
+                                title: 'Info..!!',
+                                text: response.msg,
+                            });
+                        }
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        console.log(xhr + ' ' + ajaxOptions + '' + thrownError);
+                    }
+                });
+            } else {
+                // apabila pada data penyakit tidak ada yang dicentang
+                $.gritter.add({
+                    title: 'Peringatan..!!',
+                    text: 'Belum ada data yang dipilih!',
+                });
             }
         });
     }();

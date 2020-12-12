@@ -8,9 +8,9 @@ class M_kecamatan extends CI_Model
         return $result;
     }
 
-    public function getWhere($id)
+    public function getWhere($kd)
     {
-        $result = $this->db->query("SELECT * FROM tb_kecamatan WHERE id_kecamatan = '$id'")->row();
+        $result = $this->db->query("SELECT * FROM tb_kecamatan WHERE kd_kecamatan = '$kd'")->row();
         return $result;
     }
 }

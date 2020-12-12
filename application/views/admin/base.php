@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/icon/feather/css/feather.css" />
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/css/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gritter@1.7.4/css/jquery.gritter.css" />
     <!-- end:: css universal -->
 
     <!-- begin:: css local -->
@@ -132,48 +133,48 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="pcoded-navigatio-lavel">Home</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
+                                <li class="<?= ($this->uri->segment(2) == 'dashboard' ? 'active' : '') ?>">
                                     <a href="<?= admin_url() ?>dashboard">
-                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-micon"><i class="fa fa-home"></i></span>
                                         <span class="pcoded-mtext">Dashboard</span>
                                     </a>
                                 </li>
                             </ul>
                             <div class="pcoded-navigatio-lavel">Master</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
+                                <li class="<?= ($this->uri->segment(2) == 'perkebunan' ? 'active' : '') ?>">
                                     <a href="<?= admin_url() ?>perkebunan">
-                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-micon"><i class="fa fa-tree"></i></span>
                                         <span class="pcoded-mtext">Perkebunan</span>
                                     </a>
                                 </li>
-                                <li class="">
+                                <li class="<?= ($this->uri->segment(2) == 'kecamatan' ? 'active' : '') ?>">
                                     <a href="<?= admin_url() ?>kecamatan">
-                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-micon"><i class="fa fa-location"></i></span>
                                         <span class="pcoded-mtext">Kecamatan</span>
                                     </a>
                                 </li>
                             </ul>
                             <div class="pcoded-navigatio-lavel">Pustaka</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
+                                <li class="<?= ($this->uri->segment(2) == 'komoditas' ? 'active' : '') ?>">
                                     <a href="<?= admin_url() ?>komoditas">
-                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-micon"><i class="fa fa-cogs"></i></span>
                                         <span class="pcoded-mtext">Komoditas</span>
                                     </a>
                                 </li>
-                                <li class="">
+                                <li class="<?= ($this->uri->segment(2) == 'peta' ? 'active' : '') ?>">
                                     <a href="<?= admin_url() ?>peta">
-                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-micon"><i class="fa fa-map"></i></span>
                                         <span class="pcoded-mtext">Pemetaan</span>
                                     </a>
                                 </li>
                             </ul>
                             <div class="pcoded-navigatio-lavel">Metode</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
+                                <li class="<?= ($this->uri->segment(2) == 'algoritma' ? 'active' : '') ?>">
                                     <a href="<?= admin_url() ?>algoritma">
-                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-micon"><i class="fa fa-cog"></i></span>
                                         <span class="pcoded-mtext">Algoritma</span>
                                     </a>
                                 </li>
@@ -202,20 +203,16 @@
     <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/popper.js/js/popper.min.js"></script>
     <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
-    <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/modernizr/js/modernizr.js"></script>
-    <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/chart.js/js/Chart.js"></script>
-    <script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/widget/amchart/amcharts.js"></script>
-    <script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/widget/amchart/serial.js"></script>
-    <script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/widget/amchart/light.js"></script>
     <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/SmoothScroll.js"></script>
     <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/pcoded.min.js"></script>
     <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/vartical-layout.min.js"></script>
-    <script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/dashboard/custom-dashboard.js"></script>
     <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/script.min.js"></script>
     <!-- cdn -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gritter@1.7.4/js/jquery.gritter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js"></script>
 
     <script>
         window.dataLayer = window.dataLayer || [];

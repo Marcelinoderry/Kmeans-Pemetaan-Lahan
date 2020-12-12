@@ -37,11 +37,23 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No.</th>
-                                    <th scope="col">Aksi</th>
-                                    <th scope="col">Nama</th>
+                                    <th scope="col">Kecamatan</th>
+                                    <th scope="col">Perkebunan</th>
+                                    <th scope="col">Tahun</th>
+                                    <th scope="col">Jumlah (Ton)</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $no = 1;
+                                foreach ($data as $rows) : ?>
+                                    <tr>
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $rows->kecamatan ?></td>
+                                        <td><?= $rows->perkebunan ?></td>
+                                        <td><?= $rows->tahun ?></td>
+                                        <td><?= $rows->jumlah ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

@@ -14,6 +14,7 @@ class Komoditas extends MY_Controller
         $this->load->model('crud');
         $this->load->model('m_perkebunan');
         $this->load->model('m_kecamatan');
+        $this->load->model('m_komoditas');
     }
 
     // untuk default
@@ -22,7 +23,7 @@ class Komoditas extends MY_Controller
         $data = [
             'halaman' => 'Komoditas',
             'content' => 'admin/komoditas/view',
-            'data'    => $this->m_perkebunan->getAll(),
+            'data'    => $this->m_komoditas->getAll(),
             'css'     => 'admin/komoditas/css/view',
             'js'      => 'admin/komoditas/js/view'
         ];
@@ -41,9 +42,8 @@ class Komoditas extends MY_Controller
             'Kecamatan',
             'Kode Perkebunan',
             'Jenis Komoditi',
-            'Bulan',
             'Tahun',
-            'Hasil',
+            'Jumlah (Ton)',
         ];
 
         $kode = [
@@ -53,7 +53,6 @@ class Komoditas extends MY_Controller
             'D',
             'E',
             'F',
-            'G',
         ];
 
         // begin:: head
@@ -64,13 +63,13 @@ class Komoditas extends MY_Controller
         // end:: head
 
         // begin:: body
-        $getKecamatan = $this->m_kecamatan->getAll(); // untuk mengambil kecamatan
-        $getPerkebunan = $this->m_perkebunan->getAll(); // untuk mengambil perkebunan
+        $getKecamatan  = $this->m_kecamatan->getAll();   // untuk mengambil kecamatan
+        $getPerkebunan = $this->m_perkebunan->getAll();  // untuk mengambil perkebunan
 
         for ($j = 0; $j < count($getKecamatan); $j++) {
             for ($k = 0; $k < count($getPerkebunan); $k++) {
                 $results[] = [
-                    'id_kecamatan'  => $getKecamatan[$j]->id_kecamatan,
+                    'kd_kecamatan'  => $getKecamatan[$j]->kd_kecamatan,
                     'kecamatan'     => $getKecamatan[$j]->nama,
                     'kd_perkebunan' => $getPerkebunan[$k]->kd_perkebunan,
                     'perkebunan'    => $getPerkebunan[$k]->nama,
@@ -80,7 +79,7 @@ class Komoditas extends MY_Controller
 
         $baris = 2;
         foreach ($results as $key => $value) {
-            $sheet->setCellValue('A' . $baris, $value['id_kecamatan']);
+            $sheet->setCellValue('A' . $baris, $value['kd_kecamatan']);
             $sheet->setCellValue('B' . $baris, $value['kecamatan']);
             $sheet->setCellValue('C' . $baris, $value['kd_perkebunan']);
             $sheet->setCellValue('D' . $baris, $value['perkebunan']);
@@ -119,25 +118,58 @@ class Komoditas extends MY_Controller
         $sheetData   = $spreadsheet->getActiveSheet()->toArray();
 
         for ($i = 1; $i < count($sheetData); $i++) {
-            $kecamatan  = $sheetData[$i][0];
-            $perkebunan = $sheetData[$i][2];
-            $bulan      = 'test';
-            $tahun      = $sheetData[$i][5];
-            $hasil      = 'test';
+            $kecamatan     = $sheetData[$i][0];
+            $perkebunan    = $sheetData[$i][2];
+            $tahun         = $sheetData[$i][4];
+            $jumlah        = $sheetData[$i][5];
 
             $rKecamatan = $this->m_kecamatan->getWhere($kecamatan)->nama;
             $rPerkebunan = $this->m_perkebunan->getWhere($perkebunan)->nama;
 
             $data[] = [
-                'kecamatan'  => $rKecamatan,
-                'perkebunan' => $rPerkebunan,
-                'bulan'      => $bulan,
-                'tahun'      => $tahun,
-                'hasil'      => $hasil
+                'kecamatan'     => $rKecamatan,
+                'kd_kecamatan'  => $kecamatan,
+                'perkebunan'    => $rPerkebunan,
+                'kd_perkebunan' => $perkebunan,
+                'tahun'         => $tahun,
+                'jumlah'        => $jumlah
             ];
         }
 
         $response = ['data' => $data];
+
+        $this->_response($response);
+    }
+
+    // untuk simpan upload
+    public function simpan()
+    {
+        $data = json_decode(stripslashes($_POST['data']));
+
+        $this->db->trans_start();
+        for ($i = 0; $i < count($data); $i++) {
+            $kd_kecamatan  = $data[$i][0];
+            $kd_perusahaan = $data[$i][1];
+            $tahun         = $data[$i][2];
+            $jumlah        = $data[$i][3];
+
+            $insert = [
+                'kd_kecamatan'  => $kd_kecamatan,
+                'kd_perkebunan' => $kd_perusahaan,
+                'tahun'         => $tahun,
+                'jumlah'        => $jumlah
+            ];
+
+            // untuk simpan data
+            $this->db->insert('tb_komoditas', $insert);
+        }
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === TRUE) {
+            $response = ['status' => true, 'msg' => 'Data Sukses di Simpan!'];
+        } else {
+            $response = ['status' => false, 'msg' => 'Data Gagal di Simpan!'];
+        }
 
         $this->_response($response);
     }

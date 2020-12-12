@@ -38,7 +38,8 @@
                             <label for="inpfile">File *</label>
                             <input type="file" class="form-control" name="inpfile" id="inpfile">
                         </div>
-                        <button class="btn btn-success btn-sm" type="submit" name="add" id="add"><i class="fa fa-plus"></i> Add</button>
+                        <button class="btn btn-success btn-sm" type="submit" name="add" id="add"><i class="fa fa-file-import"></i>&nbsp;Import</button>
+                        <button class="btn btn-primary btn-sm" type="button" name="save" id="save" disabled="disabled"><i class="fa fa-save"></i>&nbsp;Simpan</button>
                     </form>
                 </div>
             </div>
@@ -61,9 +62,8 @@
                                     </th>
                                     <th scope="col" class="text-center">Kecamatan</th>
                                     <th scope="col" class="text-center">Perkebunan</th>
-                                    <th scope="col" class="text-center">Bulan</th>
                                     <th scope="col" class="text-center">Tahun</th>
-                                    <th scope="col" class="text-center">Hasil</th>
+                                    <th scope="col" class="text-center">Jumlah (Ton)</th>
                                 </tr>
                             </thead>
                             <tbody>
