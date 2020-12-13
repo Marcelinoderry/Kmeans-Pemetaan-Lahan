@@ -19,7 +19,7 @@ class Home extends CI_Controller
             'content' => 'home/home/view',
             'js'      => ''
         ];
-
+        // untuk load view
         $this->load->view('home/base', $data);
     }
 

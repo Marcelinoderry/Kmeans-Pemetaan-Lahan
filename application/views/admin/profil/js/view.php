@@ -34,7 +34,6 @@
                 $('#showpassword').remove();
             }
         });
-
         $(document).on('click', '#lihatpassword', function() {
             if ($(this).is(':checked')) {
                 $('#inppassword2').attr('type', 'text');
@@ -49,7 +48,6 @@
         $(document).on('keyup', '#inppassword2', function() {
             var passnm = $('#inppassword1').val();
             var passwd = $(this).val();
-
             if (passnm != passwd) {
                 $('#pesan').html('Password tidak sesuai!');
                 return false;
@@ -63,16 +61,13 @@
     // untuk ubah data
     var untukUbahData = function() {
         $('#form-add').parsley();
-
         $(document).on('submit', '#form-add', function(e) {
             e.preventDefault();
-
             $('#inpnama').attr('required', 'required');
             $('#inpemail').attr('required', 'required');
             $('#inpusername').attr('required', 'required');
             $('#inppassword1').attr('required', 'required');
             $('#inppassword2').attr('required', 'required');
-
             if ($('#form-add').parsley().isValid() == true) {
                 $.ajax({
                     method: $(this).attr('method'),

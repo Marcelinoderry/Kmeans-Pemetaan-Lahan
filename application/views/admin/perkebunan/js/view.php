@@ -18,9 +18,7 @@
     var untukTambahData = function() {
         $('#form-add').submit(function(e) {
             e.preventDefault();
-
             $('#inpnama').attr('required', 'required');
-
             if ($('#form-add').parsley().isValid() == true) {
                 $.ajax({
                     method: $(this).attr('method'),

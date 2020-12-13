@@ -22,7 +22,7 @@ class Perkebunan extends MY_Controller
             'css'     => 'admin/perkebunan/css/view',
             'js'      => 'admin/perkebunan/js/view'
         ];
-
+        // untuk load view
         $this->load->view('admin/base', $data);
     }
 
@@ -31,14 +31,12 @@ class Perkebunan extends MY_Controller
     {
         $post   = $this->input->post(NULL, TRUE);
         $result = $this->crud->gda('tb_perkebunan', ['id_perkebunan' => $post['id']]);
-
         $data = [
             'id_perkebunan' => $result['id_perkebunan'],
             'kd_perkebunan' => $result['kd_perkebunan'],
             'nama'          => $result['nama'],
         ];
-
-        // untuk reponse
+        // untuk response json
         $this->_response($data);
     }
 
@@ -46,22 +44,18 @@ class Perkebunan extends MY_Controller
     public function upd()
     {
         $post = $this->input->post(NULL, TRUE);
-
         $data = [
             'nama' => $post['inpnama'],
         ];
-
         $this->db->trans_start();
         $this->crud->u('tb_perkebunan', $data, ['id_perkebunan' => $post['inpidperkebunan']]);
         $this->db->trans_complete();
-
         if ($this->db->trans_status() === FALSE) {
             $response = ['title' => 'Gagal!', 'text' => 'Gagal Simpan!', 'type' => 'error', 'button' => 'Ok!'];
         } else {
             $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Simpan!', 'type' => 'success', 'button' => 'Ok!'];
         }
-
-        // untuk reponse
+        // untuk response json
         $this->_response($response);
     }
 
@@ -69,24 +63,20 @@ class Perkebunan extends MY_Controller
     public function add()
     {
         $post = $this->input->post(NULL, TRUE);
-
         $data = [
             'id_perkebunan' => acak_id('tb_perkebunan', 'id_perkebunan'),
             'kd_perkebunan' => $post['inpkode'],
             'nama'          => $post['inpnama'],
         ];
-
         $this->db->trans_start();
         $this->crud->i('tb_perkebunan', $data);
         $this->db->trans_complete();
-
         if ($this->db->trans_status() === FALSE) {
             $response = ['title' => 'Gagal!', 'text' => 'Gagal Simpan!', 'type' => 'error', 'button' => 'Ok!'];
         } else {
             $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Simpan!', 'type' => 'success', 'button' => 'Ok!'];
         }
-
-        // untuk reponse
+        // untuk response json
         $this->_response($response);
     }
 
@@ -94,18 +84,15 @@ class Perkebunan extends MY_Controller
     public function del()
     {
         $post = $this->input->post(NULL, TRUE);
-
         $this->db->trans_start();
         $this->crud->d('tb_perkebunan', $post['id'], 'id_perkebunan');
         $this->db->trans_complete();
-
         if ($this->db->trans_status() === FALSE) {
             $response = ['title' => 'Gagal!', 'text' => 'Gagal Hapus!', 'type' => 'error', 'button' => 'Ok!'];
         } else {
             $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Hapus!', 'type' => 'success', 'button' => 'Ok!'];
         }
-
-        // untuk reponse
+        // untuk response json
         $this->_response($response);
     }
 }

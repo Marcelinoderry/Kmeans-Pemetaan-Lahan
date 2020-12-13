@@ -20,7 +20,6 @@
     var untukCentangSemua = function() {
         $(document).on('click', '#pilih_semua', function() {
             var checked = $('.pilih');
-
             if (checked.not(this).prop('checked', this.checked).is(':checked')) {
                 checked.not(this).prop('checked', true);
             } else {
@@ -33,9 +32,7 @@
     var untukImportData = function() {
         $('#form-add').submit(function(e) {
             e.preventDefault();
-
             $('#inpfile').attr('required', 'required');
-
             if ($('#form-add').parsley().isValid() == true) {
                 $.ajax({
                     method: $(this).attr('method'),
@@ -52,7 +49,6 @@
                         if ($.fn.DataTable.isDataTable('#datatabel')) {
                             $('#datatabel').DataTable().destroy();
                         }
-
                         $('#datatabel').DataTable({
                             data: response.data,
                             paging: false,
@@ -91,24 +87,19 @@
     var untukSimpanData = function() {
         $(document).on('click', '#save', function(e) {
             var centang = $('.pilih:checked');
-
             if (centang.length > 0) {
                 // apabila data dicentang
                 var data = [];
-
                 $(centang).each(function() {
                     var ini = $(this);
-
                     var get = [
                         ini.data('kd_kecamatan'),
                         ini.data('kd_perkebunan'),
                         ini.data('tahun'),
                         ini.data('jumlah'),
                     ];
-
                     data.push(get);
                 });
-
                 $.ajax({
                     method: 'POST',
                     url: "<?= admin_url() ?>komoditas/simpan",

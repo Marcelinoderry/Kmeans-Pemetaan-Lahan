@@ -22,7 +22,7 @@ class Kecamatan extends MY_Controller
             'css'     => 'admin/kecamatan/css/view',
             'js'      => 'admin/kecamatan/js/view'
         ];
-
+        // untuk load view
         $this->load->view('admin/base', $data);
     }
 
@@ -31,7 +31,6 @@ class Kecamatan extends MY_Controller
     {
         $post   = $this->input->post(NULL, TRUE);
         $result = $this->crud->gda('tb_kecamatan', ['id_kecamatan' => $post['id']]);
-
         $data = [
             'id_kecamatan' => $result['id_kecamatan'],
             'kd_kecamatan' => $result['kd_kecamatan'],
@@ -41,8 +40,7 @@ class Kecamatan extends MY_Controller
             'longitude'    => $result['longitude'],
             'keterangan'   => $result['keterangan'],
         ];
-
-        // untuk reponse
+        // untuk response json
         $this->_response($data);
     }
 
@@ -50,7 +48,6 @@ class Kecamatan extends MY_Controller
     public function upd()
     {
         $post = $this->input->post(NULL, TRUE);
-
         $data = [
             'nama'         => $post['inpnama'],
             'url'          => $post['inpurl'],
@@ -58,18 +55,15 @@ class Kecamatan extends MY_Controller
             'longitude'    => $post['inplongitude'],
             'keterangan'   => $post['inpketerangan'],
         ];
-
         $this->db->trans_start();
         $this->crud->u('tb_kecamatan', $data, ['id_kecamatan' => $post['inpidkecamatan']]);
         $this->db->trans_complete();
-
         if ($this->db->trans_status() === FALSE) {
             $response = ['title' => 'Gagal!', 'text' => 'Gagal Simpan!', 'type' => 'error', 'button' => 'Ok!'];
         } else {
             $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Simpan!', 'type' => 'success', 'button' => 'Ok!'];
         }
-
-        // untuk reponse
+        // untuk response json
         $this->_response($response);
     }
 
@@ -77,7 +71,6 @@ class Kecamatan extends MY_Controller
     public function add()
     {
         $post = $this->input->post(NULL, TRUE);
-
         $data = [
             'id_kecamatan' => acak_id('tb_kecamatan', 'id_kecamatan'),
             'kd_kecamatan' => $post['inpkode'],
@@ -87,18 +80,15 @@ class Kecamatan extends MY_Controller
             'longitude'    => $post['inplongitude'],
             'keterangan'   => $post['inpketerangan'],
         ];
-
         $this->db->trans_start();
         $this->crud->i('tb_kecamatan', $data);
         $this->db->trans_complete();
-
         if ($this->db->trans_status() === FALSE) {
             $response = ['title' => 'Gagal!', 'text' => 'Gagal Simpan!', 'type' => 'error', 'button' => 'Ok!'];
         } else {
             $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Simpan!', 'type' => 'success', 'button' => 'Ok!'];
         }
-
-        // untuk reponse
+        // untuk response json
         $this->_response($response);
     }
 
@@ -106,18 +96,15 @@ class Kecamatan extends MY_Controller
     public function del()
     {
         $post = $this->input->post(NULL, TRUE);
-
         $this->db->trans_start();
         $this->crud->d('tb_kecamatan', $post['id'], 'id_kecamatan');
         $this->db->trans_complete();
-
         if ($this->db->trans_status() === FALSE) {
             $response = ['title' => 'Gagal!', 'text' => 'Gagal Hapus!', 'type' => 'error', 'button' => 'Ok!'];
         } else {
             $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Hapus!', 'type' => 'success', 'button' => 'Ok!'];
         }
-
-        // untuk reponse
+        // untuk response json
         $this->_response($response);
     }
 }

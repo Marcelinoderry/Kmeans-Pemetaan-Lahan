@@ -23,7 +23,6 @@ class Auth extends CI_Controller
     {
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
-
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('home/login/view');
         } else {
@@ -38,12 +37,9 @@ class Auth extends CI_Controller
     public function auth($username, $password)
     {
         $user = $this->db->get_where('tb_users', ['username' => $username]);
-
         $count = $user->result();
-
         if (count($count) >= 1) {
             $row = $user->row_array();
-
             if (password_verify($password, $row['password'])) {
                 if ($row['role'] == 'admin') {
                     $data = [
@@ -52,9 +48,7 @@ class Auth extends CI_Controller
                         'password' => $password,
                         'role'     => $row['role'],
                     ];
-
                     $this->session->set_userdata($data);
-
                     exit(json_encode(array('status' => true, 'link' => admin_url() . 'dashboard')));
                 }
             } else {

@@ -18,13 +18,11 @@
     var untukTambahData = function() {
         $('#form-add').submit(function(e) {
             e.preventDefault();
-
             $('#inpnama').attr('required', 'required');
             $('#inpurl').attr('required', 'required');
             $('#inplatitude').attr('required', 'required');
             $('#inplongitude').attr('required', 'required');
             $('#inpketerangan').attr('required', 'required');
-
             if ($('#form-add').parsley().isValid() == true) {
                 $.ajax({
                     method: $(this).attr('method'),
@@ -57,7 +55,6 @@
     var untukGetIdData = function() {
         $(document).on('click', '#upd', function() {
             var ini = $(this);
-
             $.ajax({
                 type: "post",
                 url: "<?= admin_url() ?>kecamatan/get",
@@ -72,7 +69,6 @@
                 success: function(data) {
                     $('form').attr('action', '<?= admin_url() ?>/kecamatan/upd');
                     $('form').attr('id', 'form-upd');
-
                     $('#inpidkecamatan').attr('name', 'inpidkecamatan');
                     $('#inpidkecamatan').val(data.id_kecamatan);
                     $('#inpkode').val(data.kd_kecamatan);
@@ -81,7 +77,6 @@
                     $('#inplatitude').val(data.latitude);
                     $('#inplongitude').val(data.longitude);
                     $('#inpketerangan').val(data.keterangan);
-
                     $('#add').html('<i class="fas fa-plus"></i>&nbsp;Simpan');
                     ini.removeAttr('disabled');
                     ini.html('<i class="fas fa-edit"></i>&nbsp;Edit');
@@ -94,13 +89,11 @@
     var untukUbahData = function() {
         $(document).on('submit', '#form-upd', function(e) {
             e.preventDefault();
-
             $('#inpnama').attr('required', 'required');
             $('#inpurl').attr('required', 'required');
             $('#inplatitude').attr('required', 'required');
             $('#inplongitude').attr('required', 'required');
             $('#inpketerangan').attr('required', 'required');
-
             if ($('#form-upd').parsley().isValid() == true) {
                 $.ajax({
                     method: $(this).attr('method'),
@@ -133,7 +126,6 @@
     var untukHapusData = function() {
         $(document).on('click', '#del', function() {
             var ini = $(this);
-
             swal({
                     title: "Apakah Anda yakin ingin menghapusnya?",
                     text: "Data yang telah dihapus tidak dapat dikembalikan!",

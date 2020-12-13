@@ -1,22 +1,21 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends MY_Controller
+class Algoritma extends MY_Controller
 {
     public function __construct()
-	{
+    {
         parent::__construct();
-	}
+    }
 
     public function index()
     {
         $data = [
-            'halaman' => 'Dashboard',
+            'halaman' => 'Algoritma',
             'css'     => '',
-            'content' => 'admin/dashboard/view',
+            'content' => 'admin/algoritma/view',
             'js'      => ''
         ];
-        // untuk load view
         $this->load->view('admin/base', $data);
     }
 }

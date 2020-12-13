@@ -22,7 +22,7 @@ class Profil extends MY_Controller
             'css'     => 'admin/profil/css/view',
             'js'      => 'admin/profil/js/view'
         ];
-
+        // untuk load view
         $this->load->view('admin/base', $data);
     }
 
@@ -30,12 +30,9 @@ class Profil extends MY_Controller
     public function upd()
     {
         $post = $this->input->post(NULL, TRUE);
-
         if (isset($post['inppassword1']) || isset($post['inppassword2'])) {
             $p2 = $post['inppassword2'];
-
             $ph = password_hash($p2, PASSWORD_DEFAULT);
-
             $data = [
                 'name'     => $post['inpnama'],
                 'email'    => $post['inpemail'],
@@ -49,18 +46,15 @@ class Profil extends MY_Controller
                 'username' => $post['inpusername'],
             ];
         }
-
         $this->db->trans_start();
         $this->crud->u('tb_users', $data, ['id' => $post['inpidusers']]);
         $this->db->trans_complete();
-
         if ($this->db->trans_status() === FALSE) {
             $response = ['title' => 'Gagal!', 'text' => 'Data diubah.', 'type' => 'error', 'button' => 'Ok!'];
         } else {
             $response = ['title' => 'Berhasil!', 'text' => 'Data tidak diubah.', 'type' => 'success', 'button' => 'Ok!'];
         }
-
-        // untuk response
+        // untuk response json
         $this->_response($response);
     }
 }

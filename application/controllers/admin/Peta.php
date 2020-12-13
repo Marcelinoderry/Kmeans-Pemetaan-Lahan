@@ -32,4 +32,14 @@ class Peta extends MY_Controller
         // untuk response
         $this->_response($result);
     }
+
+    // untuk ambil detail kecamatan
+    public function get_peta_detail()
+    {
+        $kd_kecamatan = $this->input->get('kd_kecamatan');
+
+        $data['kecamatan'] = $this->m_kecamatan->getWhere($kd_kecamatan);
+
+        $this->load->view('admin/peta/detail', $data);
+    }
 }

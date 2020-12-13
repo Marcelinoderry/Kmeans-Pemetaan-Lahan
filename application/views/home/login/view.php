@@ -112,23 +112,18 @@
 
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-
         gtag('config', 'UA-23581568-13');
-
+        
         var untukTambahData = function() {
             $('#form-login').parsley();
-
             $('#form-login').submit(function(e) {
                 e.preventDefault();
-
                 $('#username').attr('required', 'required');
                 $('#password').attr('required', 'required');
-
                 if ($('#form-login').parsley().isValid() == true) {
                     $.ajax({
                         method: $(this).attr('method'),

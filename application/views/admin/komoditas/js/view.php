@@ -56,17 +56,14 @@
                 },
             ],
         });
-
         $("#kecamatan").change(function(e) {
             e.preventDefault();
             tabel.ajax.reload();
         });
-
         $("#perkebunan").change(function(e) {
             e.preventDefault();
             tabel.ajax.reload();
         });
-
         $("#tahun").change(function(e) {
             e.preventDefault();
             tabel.ajax.reload();
@@ -77,9 +74,7 @@
     var untukTambahData = function() {
         $('#form-add').submit(function(e) {
             e.preventDefault();
-
             $('#inpnama').attr('required', 'required');
-
             if ($('#form-add').parsley().isValid() == true) {
                 $.ajax({
                     method: $(this).attr('method'),
@@ -112,7 +107,6 @@
     var untukGetIdData = function() {
         $(document).on('click', '#upd', function() {
             var ini = $(this);
-
             $.ajax({
                 type: "post",
                 url: "<?= admin_url() ?>perkebunan/get",
@@ -144,9 +138,7 @@
     var untukUbahData = function() {
         $(document).on('submit', '#form-upd', function(e) {
             e.preventDefault();
-
             $('#inpnama').attr('required', 'required');
-
             if ($('#form-upd').parsley().isValid() == true) {
                 $.ajax({
                     method: $(this).attr('method'),
@@ -179,7 +171,6 @@
     var untukHapusData = function() {
         $(document).on('click', '#del', function() {
             var ini = $(this);
-
             swal({
                     title: "Apakah Anda yakin ingin menghapusnya?",
                     text: "Data yang telah dihapus tidak dapat dikembalikan!",

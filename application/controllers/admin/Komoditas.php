@@ -29,7 +29,7 @@ class Komoditas extends MY_Controller
             'perkebunan' => $this->m_perkebunan->getAll(),
             'tahun'      => $this->m_komoditas->getYear(),
         ];
-
+        // untuk load view
         $this->load->view('admin/base', $data);
     }
 
@@ -44,36 +44,17 @@ class Komoditas extends MY_Controller
     {
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
-
-        $kolom = [
-            'Id Kecamatan',
-            'Kecamatan',
-            'Kode Perkebunan',
-            'Jenis Komoditi',
-            'Tahun',
-            'Jumlah (Ton)',
-        ];
-
-        $kode = [
-            'A',
-            'B',
-            'C',
-            'D',
-            'E',
-            'F',
-        ];
-
+        $kolom = ['Id Kecamatan', 'Kecamatan', 'Kode Perkebunan', 'Jenis Komoditi', 'Tahun', 'Jumlah (Ton)'];
+        $kode = ['A', 'B', 'C', 'D', 'E', 'F'];
         // begin:: head
         for ($i = 0; $i < count($kode); $i++) {
             $sheet->setCellValue("$kode[$i]1", $kolom[$i]);
             $sheet->getColumnDimension($kode[$i])->setAutoSize(true);
         }
         // end:: head
-
         // begin:: body
         $getKecamatan  = $this->m_kecamatan->getAll();   // untuk mengambil kecamatan
         $getPerkebunan = $this->m_perkebunan->getAll();  // untuk mengambil perkebunan
-
         for ($j = 0; $j < count($getKecamatan); $j++) {
             for ($k = 0; $k < count($getPerkebunan); $k++) {
                 $results[] = [
@@ -84,7 +65,6 @@ class Komoditas extends MY_Controller
                 ];
             }
         }
-
         $baris = 2;
         foreach ($results as $key => $value) {
             $sheet->setCellValue('A' . $baris, $value['kd_kecamatan']);
@@ -95,7 +75,6 @@ class Komoditas extends MY_Controller
             $baris++;
         }
         // end:: body
-
         $writer = new Xlsx($spreadsheet);
         $filename = 'format-laporan';
         header('Content-Type: application/vnd.ms-excel');
@@ -113,7 +92,7 @@ class Komoditas extends MY_Controller
             'css'     => 'admin/komoditas/css/unggah',
             'js'      => 'admin/komoditas/js/unggah'
         ];
-
+        // untuk load view
         $this->load->view('admin/base', $data);
     }
 
@@ -124,16 +103,13 @@ class Komoditas extends MY_Controller
         $excel       = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
         $spreadsheet = $excel->load($filePath);
         $sheetData   = $spreadsheet->getActiveSheet()->toArray();
-
         for ($i = 1; $i < count($sheetData); $i++) {
-            $kecamatan     = $sheetData[$i][0];
-            $perkebunan    = $sheetData[$i][2];
-            $tahun         = $sheetData[$i][4];
-            $jumlah        = $sheetData[$i][5];
-
-            $rKecamatan = $this->m_kecamatan->getWhere($kecamatan)->nama;
+            $kecamatan   = $sheetData[$i][0];
+            $perkebunan  = $sheetData[$i][2];
+            $tahun       = $sheetData[$i][4];
+            $jumlah      = $sheetData[$i][5];
+            $rKecamatan  = $this->m_kecamatan->getWhere($kecamatan)->nama;
             $rPerkebunan = $this->m_perkebunan->getWhere($perkebunan)->nama;
-
             $data[] = [
                 'kecamatan'     => $rKecamatan,
                 'kd_kecamatan'  => $kecamatan,
@@ -143,10 +119,8 @@ class Komoditas extends MY_Controller
                 'jumlah'        => $jumlah
             ];
         }
-
         $response = ['data' => $data];
-
-        // untuk response
+        // untuk response json
         $this->_response($response);
     }
 
@@ -154,33 +128,28 @@ class Komoditas extends MY_Controller
     public function simpan()
     {
         $data = json_decode(stripslashes($_POST['data']));
-
         $this->db->trans_start();
         for ($i = 0; $i < count($data); $i++) {
             $kd_kecamatan  = $data[$i][0];
             $kd_perusahaan = $data[$i][1];
             $tahun         = $data[$i][2];
             $jumlah        = $data[$i][3];
-
             $insert = [
                 'kd_kecamatan'  => $kd_kecamatan,
                 'kd_perkebunan' => $kd_perusahaan,
                 'tahun'         => $tahun,
                 'jumlah'        => $jumlah
             ];
-
             // untuk simpan data
             $this->db->insert('tb_komoditas', $insert);
         }
         $this->db->trans_complete();
-
         if ($this->db->trans_status() === TRUE) {
             $response = ['status' => true, 'title' => 'Berhasil!', 'text' => 'Data Sukses di Simpan!', 'type' => 'success', 'button' => 'Ok!'];
         } else {
             $response = ['status' => false, 'title' => 'Gagal!', 'text' => 'Gagal Simpan!', 'type' => 'error', 'button' => 'Ok!'];
         }
-
-        // untuk response
+        // untuk response json
         $this->_response($response);
     }
 
@@ -189,13 +158,11 @@ class Komoditas extends MY_Controller
     {
         $post   = $this->input->post(NULL, TRUE);
         $result = $this->crud->gda('tb_perkebunan', ['id_perkebunan' => $post['id']]);
-
         $data = [
             'id_perkebunan' => $result['id_perkebunan'],
             'nama'          => $result['nama'],
         ];
-
-        // untuk reponse
+        // untuk response json
         $this->_response($data);
     }
 
@@ -203,22 +170,18 @@ class Komoditas extends MY_Controller
     public function upd()
     {
         $post = $this->input->post(NULL, TRUE);
-
         $data = [
             'nama' => $post['inpnama'],
         ];
-
         $this->db->trans_start();
         $this->crud->u('tb_perkebunan', $data, ['id_perkebunan' => $post['inpidperkebunan']]);
         $this->db->trans_complete();
-
         if ($this->db->trans_status() === FALSE) {
             $response = ['title' => 'Gagal!', 'text' => 'Gagal Simpan!', 'type' => 'error', 'button' => 'Ok!'];
         } else {
             $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Simpan!', 'type' => 'success', 'button' => 'Ok!'];
         }
-
-        // untuk reponse
+        // untuk response json
         $this->_response($response);
     }
 
@@ -226,23 +189,19 @@ class Komoditas extends MY_Controller
     public function add()
     {
         $post = $this->input->post(NULL, TRUE);
-
         $data = [
             'id_perkebunan' => acak_id('tb_perkebunan', 'id_perkebunan'),
             'nama'          => $post['inpnama'],
         ];
-
         $this->db->trans_start();
         $this->crud->i('tb_perkebunan', $data);
         $this->db->trans_complete();
-
         if ($this->db->trans_status() === FALSE) {
             $response = ['title' => 'Gagal!', 'text' => 'Gagal Simpan!', 'type' => 'error', 'button' => 'Ok!'];
         } else {
             $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Simpan!', 'type' => 'success', 'button' => 'Ok!'];
         }
-
-        // untuk reponse
+        // untuk response json
         $this->_response($response);
     }
 
@@ -250,18 +209,15 @@ class Komoditas extends MY_Controller
     public function del()
     {
         $post = $this->input->post(NULL, TRUE);
-
         $this->db->trans_start();
         $this->crud->d('tb_perkebunan', $post['id'], 'id_perkebunan');
         $this->db->trans_complete();
-
         if ($this->db->trans_status() === FALSE) {
             $response = ['title' => 'Gagal!', 'text' => 'Gagal Hapus!', 'type' => 'error', 'button' => 'Ok!'];
         } else {
             $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Hapus!', 'type' => 'success', 'button' => 'Ok!'];
         }
-
-        // untuk reponse
+        // untuk response json
         $this->_response($response);
     }
 }
