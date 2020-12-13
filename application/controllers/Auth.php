@@ -11,6 +11,8 @@ class Auth extends CI_Controller
     // untuk login
     public function login()
     {
+        checking_role_session($this->session->userdata('role'));
+        
         if (empty($this->session->userdata('username'))) {
             $this->load->view('home/login/view');
         } else {

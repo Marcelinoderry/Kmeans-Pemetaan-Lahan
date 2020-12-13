@@ -133,17 +133,17 @@
                         beforeSend: function() {
                             $('#login').val('Wait');
                         },
-                        success: function(data) {
-                            if (data.status == true) {
-                                window.location = data.link;
+                        success: function(response) {
+                            if (response.status == true) {
+                                window.location = response.link;
                             } else {
                                 $('#login').val('Login');
 
                                 swal({
-                                    title: data.title,
-                                    text: data.text,
-                                    icon: data.type,
-                                    button: data.button,
+                                    title: response.title,
+                                    text: response.text,
+                                    icon: response.type,
+                                    button: response.button,
                                 });
                             }
                         }
