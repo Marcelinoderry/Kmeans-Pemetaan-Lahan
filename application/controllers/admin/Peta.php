@@ -77,8 +77,7 @@ class Peta extends MY_Controller
             }
         } else {
             $response['data'] = [
-                'Kosong',
-                0
+                ['Data Kosong', 0]
             ];
         }
         $response['tahun'] = $tahun;
