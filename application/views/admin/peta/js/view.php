@@ -23,6 +23,7 @@
                             position: new google.maps.LatLng(locations[i].latitude, locations[i].longitude),
                             map: map,
                             animation: google.maps.Animation.DROP,
+                            title: locations[i].nama,
                         });
                         // event apa bila di click
                         google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -30,14 +31,14 @@
                                 var kd_kecamatan = locations[i].kd_kecamatan;
                                 $.ajax({
                                     type: 'GET',
-                                    url: '<?= admin_url() ?>peta/get_peta_detail',
+                                    url: '<?= admin_url() ?>peta/get_peta_rincian',
                                     dataType: 'html',
                                     data: {
                                         kd_kecamatan: kd_kecamatan,
                                     },
                                     success: function(response) {
                                         $('.modal-body').html(response);
-                                        
+
                                         $('#exampleModal').modal('show');
                                     },
                                     error: function(xhr, ajaxOptions, thrownError) {
