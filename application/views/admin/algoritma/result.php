@@ -1,4 +1,6 @@
 <?php
+// untuk menghilangkan error
+error_reporting(0);
 // mengambil file kmeans buatanku
 include_once "vendor/kmeans/kmeans.php";
 // untuk menload class proses
