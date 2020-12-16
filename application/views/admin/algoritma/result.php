@@ -32,9 +32,9 @@ $proses = new Proses;
                         <tr>
                             <td><?= $no++ ?></td>
                             <td><?= str_replace("_", " ", $value['nama_produk']) ?></td>
-                            <td><?= $value['jumlahproduk1'] ?></td>
-                            <td><?= $value['jumlahproduk2'] ?></td>
-                            <td><?= $value['jumlahproduk3'] ?></td>
+                            <td><?= $value['jumlah_hasil1'] ?></td>
+                            <td><?= $value['jumlah_hasil2'] ?></td>
+                            <td><?= $value['jumlah_hasil3'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -389,20 +389,19 @@ while (true) {
     <div class="card-block">
         Berdasarkan dari hasil Clustering yang telah dibagi menjadi 3 Cluss yaitu :
         <ul>
-            <li>- Penderita Penyakit Terbanyak</li>
-            <li>- Penderita Penyakit Sedang</li>
-            <li>- Penderita Penyakit Sedikit</li>
+            <li>- Panen Perkebunan Terbanyak</li>
+            <li>- Panen Perkebunan Sedang</li>
+            <li>- Panen Perkebunan Sedikit</li>
         </ul>
         Terdapat :
         <ul>
-            <li>- <b><?php echo count($pemb_clus['cls1']); ?></b> Jenis Penyakit dengan jumlah Penderita Penyakit Terbanyak</li>
-            <li>- <b><?php echo count($pemb_clus['cls2']); ?></b> Jenis Penyakit dengan jumlah Penderita Penyakit Sedang</li>
-            <li>- <b><?php echo count($pemb_clus['cls3']); ?></b> Jenis Penyakit dengan jumlah Penderita Penyakit Sedikit</li>
+            <li>- <b><?php echo count($pemb_clus['cls1']); ?></b> Jenis Perkebunan dengan jumlah Penderita Perkebunan Terbanyak.</li>
+            <li>- <b><?php echo count($pemb_clus['cls2']); ?></b> Jenis Perkebunan dengan jumlah Penderita Perkebunan Sedang.</li>
+            <li>- <b><?php echo count($pemb_clus['cls3']); ?></b> Jenis Perkebunan dengan jumlah Penderita Perkebunan Sedikit.</li>
         </ul>
-        Yang selanjutnya <b><?php echo count($pemb_clus['cls1']); ?></b> Jenis Penyakit tersebut akan dilakukan tindakan oleh <b> <i>Dinas Kesehatan</i> </b> untuk mengatasi agar penyakit tersebut dilakukan upaya Pencegahan dan Penanggulangan.
     </div>
     <div class="card-footer">
-        <form action="<?= base_url() ?>cluster/cetak_kesimpulan" method="post" target="_blank">
+        <form action="<?= admin_url() ?>algoritma/cetak" method="post" target="_blank">
             <input type="hidden" name="cls1" id="cls1" value="<?= count($pemb_clus['cls1']) ?>" />
             <input type="hidden" name="cls2" id="cls2" value="<?= count($pemb_clus['cls2']) ?>" />
             <input type="hidden" name="cls3" id="cls3" value="<?= count($pemb_clus['cls3']) ?>" />
@@ -419,10 +418,10 @@ while (true) {
             type: 'column'
         },
         title: {
-            text: 'Jumlah Penderita Penyakit Terbanyak, Sedang dan Sedikit'
+            text: 'Jumlah Panen Perkebunan Terbanyak, Sedang, dan Sedikit'
         },
         subtitle: {
-            text: 'Source: Alan Saputra Lengkoan  2019'
+            text: 'Source: Hendrik Saputra 2020'
         },
         xAxis: {
             type: 'category'
@@ -454,19 +453,16 @@ while (true) {
             name: "Browsers",
             colorByPoint: true,
             data: [{
-                    name: "Penderita Penyakit Terbanyak",
+                    name: "Panen Perkebunan Terbanyak",
                     y: parseInt($('#cls1').val()),
-                    drilldown: "Chrome"
                 },
                 {
-                    name: "Penderita Penyakit Sedang",
+                    name: "Panen Perkebunan Sedang",
                     y: parseInt($('#cls2').val()),
-                    drilldown: "Firefox"
                 },
                 {
-                    name: "Penderita Penyakit Sedikit",
+                    name: "Panen Perkebunan Sedikit",
                     y: parseInt($('#cls3').val()),
-                    drilldown: "Internet Explorer"
                 }
             ]
         }]

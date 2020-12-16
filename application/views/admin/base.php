@@ -179,6 +179,15 @@
                                     </a>
                                 </li>
                             </ul>
+                            <div class="pcoded-navigatio-lavel">Laporan</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="<?= ($this->uri->segment(2) == 'laporan' ? 'active' : '') ?>">
+                                    <a href="<?= admin_url() ?>laporan">
+                                        <span class="pcoded-micon"><i class="fa fa-file"></i></span>
+                                        <span class="pcoded-mtext">Laporan</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </nav>
                     <!-- end:: navbar left -->

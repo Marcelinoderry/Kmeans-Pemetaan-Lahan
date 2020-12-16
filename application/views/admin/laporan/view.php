@@ -28,10 +28,10 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4><?= $halaman ?></h4>
+                        <h4>Form</h4>
                     </div>
                     <div class="card-block">
-                        <h2><?= $halaman ?></h2>
+                        <h2>Laporan</h2>
                     </div>
                 </div>
             </div>
