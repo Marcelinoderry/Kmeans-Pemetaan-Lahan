@@ -87,18 +87,13 @@
             </td>
         </tr>
     </table>
-
 </div>
-
-<button type="button" onclick="cetakContent('cetak-kesimpulan');">Cetak</button>
-
 <!-- untuk cetak kesimpulan -->
 <script>
-    function cetakContent(bagian) {
-        var restorepage = document.body.innerHTML;
-        var printcontent = document.getElementById(bagian).innerHTML;
-        document.body.innerHTML = printcontent;
-        window.print();
-        document.body.innerHTML = restorepage;
+    // untuk melakukan print
+    window.print();
+    // apabila cancel print
+    window.onafterprint = function() {
+        window.close()
     }
 </script>
