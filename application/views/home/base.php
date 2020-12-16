@@ -29,7 +29,7 @@
 
             <nav class="nav-menu float-right d-none d-lg-block">
                 <ul>
-                    <li class="active"><a href="index.html">Beranda</a></li>
+                    <li class="active"><a href="<?= base_url() ?>">Beranda</a></li>
                     <li><a href="tentang.html">Tentang</a></li>
                     <li><a href="statistik.html">Statistik</a></li>
                     <li><a href="<?= login_url() ?>">Login</a></li>

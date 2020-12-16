@@ -72,6 +72,6 @@ class Auth extends CI_Controller
         ];
         $this->session->unset_userdata($session_data);
         $this->session->sess_destroy();
-        redirect('home');
+        redirect(base_url());
     }
 }
