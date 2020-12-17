@@ -31,7 +31,11 @@
                         <h4>Form</h4>
                     </div>
                     <div class="card-block">
-                        <h2>Laporan</h2>
+                        <!-- begin:: tabel -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped" id="datatabel"></table>
+                        </div>
+                        <!-- end:: tabel -->
                     </div>
                 </div>
             </div>

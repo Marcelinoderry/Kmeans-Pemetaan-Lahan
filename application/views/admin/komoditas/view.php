@@ -62,9 +62,11 @@
                     </div>
                     <!-- end:: filter -->
 
+                    <!-- begin:: tabel -->
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped" id="datatabel"></table>
                     </div>
+                    <!-- end:: tabel -->
                 </div>
             </div>
             <!-- end:: table -->
