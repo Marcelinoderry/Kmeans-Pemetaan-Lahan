@@ -64,9 +64,9 @@
                 </ul>
                 Terdapat :
                 <ul>
-                    <li><b><?= $hasil_cluster[0] ?></b> Jenis Penyakit dengan jumlah Panen Perkebunan Terbanyak</li>
-                    <li><b><?= $hasil_cluster[1] ?></b> Jenis Penyakit dengan jumlah Panen Perkebunan Sedang</li>
-                    <li><b><?= $hasil_cluster[2] ?></b> Jenis Penyakit dengan jumlah Panen Perkebunan Sedikit</li>
+                    <li><b><?= $hasil_cluster[0] ?></b> Jenis Perkebunan dengan jumlah Panen Terbanyak</li>
+                    <li><b><?= $hasil_cluster[1] ?></b> Jenis Perkebunan dengan jumlah Panen Sedang</li>
+                    <li><b><?= $hasil_cluster[2] ?></b> Jenis Perkebunan dengan jumlah Panen Sedikit</li>
                 </ul>
             </td>
         </tr>

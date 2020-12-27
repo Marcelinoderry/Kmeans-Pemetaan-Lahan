@@ -47,6 +47,10 @@
                             <input type="text" class="form-control" name="inpurl" id="inpurl" placeholder="Masukkan url">
                         </div>
                         <div class="form-group">
+                            <label for="inpluslan">Luas Lahan *</label>
+                            <input type="text" class="form-control" name="inpluslan" id="inpluslan" placeholder="Masukkan luas lahan">
+                        </div>
+                        <div class="form-group">
                             <label for="inplatitude">Latitude *</label>
                             <input type="text" class="form-control" name="inplatitude" id="inplatitude" placeholder="Masukkan latitude">
                         </div>
@@ -78,6 +82,7 @@
                                     <th scope="col">Aksi</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Url</th>
+                                    <th scope="col">Luas Lahan</th>
                                     <th scope="col">Latitude</th>
                                     <th scope="col">Longitude</th>
                                     <th scope="col">Keterangan</th>
@@ -99,6 +104,7 @@
                                         </td>
                                         <td><?= $rows->nama ?></td>
                                         <td><?= $rows->url ?></td>
+                                        <td><?= $rows->luas_lahan ?></td>
                                         <td><?= $rows->latitude ?></td>
                                         <td><?= $rows->longitude ?></td>
                                         <td><?= $rows->keterangan ?></td>

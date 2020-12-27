@@ -33,7 +33,7 @@ class Peta extends MY_Controller
             'halaman' => 'Detail Kecamatan',
             'content' => 'admin/peta/detail',
             'data'    => $this->m_kecamatan->getWhere($kd_kecamatan),
-            'css'     => '',
+            'css'     => 'admin/peta/css/detail',
             'js'      => 'admin/peta/js/detail',
             'tahun'   => $this->m_komoditas->getYear(),
         ];

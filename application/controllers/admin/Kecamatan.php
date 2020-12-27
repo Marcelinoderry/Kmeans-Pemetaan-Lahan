@@ -36,6 +36,7 @@ class Kecamatan extends MY_Controller
             'kd_kecamatan' => $result['kd_kecamatan'],
             'nama'         => $result['nama'],
             'url'          => $result['url'],
+            'luas_lahan'   => $result['luas_lahan'],
             'latitude'     => $result['latitude'],
             'longitude'    => $result['longitude'],
             'keterangan'   => $result['keterangan'],
@@ -49,11 +50,12 @@ class Kecamatan extends MY_Controller
     {
         $post = $this->input->post(NULL, TRUE);
         $data = [
-            'nama'         => $post['inpnama'],
-            'url'          => $post['inpurl'],
-            'latitude'     => $post['inplatitude'],
-            'longitude'    => $post['inplongitude'],
-            'keterangan'   => $post['inpketerangan'],
+            'nama'       => $post['inpnama'],
+            'url'        => $post['inpurl'],
+            'luas_lahan' => $post['inpluslan'],
+            'latitude'   => $post['inplatitude'],
+            'longitude'  => $post['inplongitude'],
+            'keterangan' => $post['inpketerangan'],
         ];
         $this->db->trans_start();
         $this->crud->u('tb_kecamatan', $data, ['id_kecamatan' => $post['inpidkecamatan']]);
@@ -75,6 +77,7 @@ class Kecamatan extends MY_Controller
             'id_kecamatan' => acak_id('tb_kecamatan', 'id_kecamatan'),
             'kd_kecamatan' => $post['inpkode'],
             'nama'         => $post['inpnama'],
+            'luas_lahan'   => $post['inpluslan'],
             'url'          => $post['inpurl'],
             'latitude'     => $post['inplatitude'],
             'longitude'    => $post['inplongitude'],

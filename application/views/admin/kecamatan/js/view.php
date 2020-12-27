@@ -20,6 +20,7 @@
             e.preventDefault();
             $('#inpnama').attr('required', 'required');
             $('#inpurl').attr('required', 'required');
+            $('#inpluslan').attr('required', 'required');
             $('#inplatitude').attr('required', 'required');
             $('#inplongitude').attr('required', 'required');
             $('#inpketerangan').attr('required', 'required');
@@ -74,6 +75,7 @@
                     $('#inpkode').val(data.kd_kecamatan);
                     $('#inpnama').val(data.nama);
                     $('#inpurl').val(data.url);
+                    $('#inpluslan').val(data.luas_lahan);
                     $('#inplatitude').val(data.latitude);
                     $('#inplongitude').val(data.longitude);
                     $('#inpketerangan').val(data.keterangan);
@@ -91,6 +93,7 @@
             e.preventDefault();
             $('#inpnama').attr('required', 'required');
             $('#inpurl').attr('required', 'required');
+            $('#inpluslan').attr('required', 'required');
             $('#inplatitude').attr('required', 'required');
             $('#inplongitude').attr('required', 'required');
             $('#inpketerangan').attr('required', 'required');

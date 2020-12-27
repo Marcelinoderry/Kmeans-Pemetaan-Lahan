@@ -341,7 +341,7 @@ while (true) {
 <!-- tabal untuk pembagian cluster penyakit -->
 <div class="card">
     <div class="card-header">
-        <h4>Pembagian Cluster Penyakit</h4>
+        <h4>Pembagian Cluster Perkebunan</h4>
     </div>
     <div class="card-block">
         <div class="table-responsive">
@@ -395,9 +395,9 @@ while (true) {
         </ul>
         Terdapat :
         <ul>
-            <li>- <b><?php echo count($pemb_clus['cls1']); ?></b> Jenis Perkebunan dengan jumlah Penderita Perkebunan Terbanyak.</li>
-            <li>- <b><?php echo count($pemb_clus['cls2']); ?></b> Jenis Perkebunan dengan jumlah Penderita Perkebunan Sedang.</li>
-            <li>- <b><?php echo count($pemb_clus['cls3']); ?></b> Jenis Perkebunan dengan jumlah Penderita Perkebunan Sedikit.</li>
+            <li>- <b><?php echo count($pemb_clus['cls1']); ?></b> Jenis Perkebunan dengan jumlah Panen Terbanyak.</li>
+            <li>- <b><?php echo count($pemb_clus['cls2']); ?></b> Jenis Perkebunan dengan jumlah Panen Sedang.</li>
+            <li>- <b><?php echo count($pemb_clus['cls3']); ?></b> Jenis Perkebunan dengan jumlah Panen Sedikit.</li>
         </ul>
     </div>
     <div class="card-footer">
