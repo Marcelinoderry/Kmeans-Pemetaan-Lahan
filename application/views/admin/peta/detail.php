@@ -36,13 +36,13 @@
                             <div class="form-group row">
                                 <label for="inpluslan" class="col-sm-6 col-form-label">Luas Lahan</label>
                                 <div class="col-sm-6">
-                                    <input type="text" readonly class="form-control-plaintext" id="inpluslan" value="<?= $data->luas_lahan ?>">
+                                    <input type="text" readonly class="form-control-plaintext" id="inpluslan" value="<?= ($data->luas_lahan == '' ? '-' : $data->luas_lahan) ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inpketeranagan" class="col-sm-6 col-form-label">Keterangan</label>
                                 <div class="col-sm-6">
-                                    <input type="text" readonly class="form-control-plaintext" id="inpketeranagan" value="<?= $data->luas_lahan ?>">
+                                    <input type="text" readonly class="form-control-plaintext" id="inpketeranagan" value="<?= ($data->keterangan == '' ? '-' : $data->keterangan) ?>">
                                 </div>
                             </div>
                         </div>
