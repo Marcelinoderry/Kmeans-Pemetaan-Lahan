@@ -7,7 +7,7 @@
 </header>
 
 <main id="main">
-    <section class="about" data-aos="fade-up">
+    <section class="about">
         <div class="container">
 
             <div class="row">
@@ -36,7 +36,7 @@
         </div>
     </section>
 
-    <section class="facts section-bg" data-aos="fade-up">
+    <section class="facts section-bg">
         <div class="container">
             <div class="row counters">
                 <div class="col-lg-3 col-6 text-center">

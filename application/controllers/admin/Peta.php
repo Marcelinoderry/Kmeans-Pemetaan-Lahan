@@ -7,6 +7,9 @@ class Peta extends MY_Controller
     {
         parent::__construct();
 
+        // untuk mengecek status login
+        checking_session($this->session->userdata('username'));
+
         // untuk load model
         $this->load->model('m_kecamatan');
         $this->load->model('m_komoditas');

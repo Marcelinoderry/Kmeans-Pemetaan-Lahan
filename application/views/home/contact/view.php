@@ -7,7 +7,7 @@
 </header>
 
 <main id="main">
-    <section class="contact" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+    <section class="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

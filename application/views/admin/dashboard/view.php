@@ -28,10 +28,13 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4><?= $halaman ?></h4>
+                        <h5>Selamat Datang</h5>
                     </div>
                     <div class="card-block">
-                        <h2><?= $halaman ?></h2>
+                        <h5>Metode K-Means Clustering</h5>
+                        <p style="text-align: justify;">
+                            <strong><i>K-Means Clustering</i></strong> adalah salah satu metode yang digunakan untuk membuat sebuah system dengan cara pengambilan keputusan dari kasus baru berdasarkan solusi dari kasus-kasus lampau yang pernah terjadi. Konsep case based reasoning ini ditemukan bermula dari ide untuk menggunakan pengalaman-pengalaman dari kasus lampau yang pernah terjadi, lalu pengalaman itu digunakan untuk menyelesaikan kasus-kasus yang baru.
+                        </p>
                     </div>
                 </div>
             </div>
