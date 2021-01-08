@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index</title>
+    <title>Selamat Datang | <?= $halaman ?></title>
+    <link rel="shortcut icon" href="<?= assets_url() ?>map.png">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
     <link href="<?= assets_url() ?>home/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= assets_url() ?>home/js/animate.css/animate.min.css" rel="stylesheet">
@@ -21,34 +22,55 @@
 </head>
 
 <body>
-    <header id="header" class="fixed-top header-transparent">
-        <div class="container">
-            <div class="logo float-left">
-                <!-- <h1 class="text-light"><a href="index.html"><span>Pemetaan Lahan</span></a></h1> -->
-            </div>
+    <!-- begin:: content -->
+    <?php $this->load->view($content); ?>
+    <!-- end:: content -->
 
-            <nav class="nav-menu float-right d-none d-lg-block">
-                <ul>
-                    <li class="active"><a href="<?= base_url() ?>">Beranda</a></li>
-                    <li><a href="tentang.html">Tentang</a></li>
-                    <li><a href="statistik.html">Statistik</a></li>
-                    <li><a href="<?= login_url() ?>">Login</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <section id="hero" class="d-flex justify-cntent-center align-items-center">
-        <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
-            <div class="carousel-item active">
-                <div class="carousel-container">
-                    <h2 class="animate__animated animate__fadeInDown">Selamat Datang</h2>
-                    <p class="animate__animated animate__fadeInUp">Kmeans Pemetaan Lahan.</p>
-                    <a href="statistik.html" class="btn-get-started animate__animated animate__fadeInUp">Mulai</a>
+    <!-- begin:: footer -->
+    <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Alamat</h4>
+                        <p>
+                            A108 Adam Street <br>
+                            New York, NY 535022<br>
+                            United States
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Telepon</h4>
+                        +1 5589 55488 55
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Email</h4>
+                        info@example.com
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <h3>Sosial Media</h3>
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
-    </section>
+
+        <div class="container">
+            <div class="copyright">
+                Copyright &copy;
+                <script>
+                    document.write(new Date().getFullYear());
+                </script>
+                <a href="https://alanlengkoan.netlify.app/" target="_blank">AL</a> - K-Means Pemetaan Lahan.
+            </div>
+        </div>
+    </footer>
+    <!-- end:: footer -->
 
     <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 

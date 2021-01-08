@@ -23,18 +23,51 @@ class Home extends CI_Controller
         $this->load->view('home/base', $data);
     }
 
-    public function visimisi()
+    public function about()
     {
-        echo "visi & misi";
-    }
-
-    public function profil()
-    {
-        echo "profil";
+        $data = [
+            'css'     => '',
+            'halaman' => 'Tentang',
+            'content' => 'home/about/view',
+            'js'      => ''
+        ];
+        // untuk load view
+        $this->load->view('home/base', $data);
     }
 
     public function contact()
     {
-        echo "contact";
+         $data = [
+            'css'     => '',
+            'halaman' => 'Tentang',
+            'content' => 'home/contact/view',
+            'js'      => ''
+        ];
+        // untuk load view
+        $this->load->view('home/base', $data);
+    }
+
+    public function maps()
+    {
+         $data = [
+            'css'     => '',
+            'halaman' => 'Tentang',
+            'content' => 'home/maps/view',
+            'js'      => ''
+        ];
+        // untuk load view
+        $this->load->view('home/base', $data);
+    }
+
+    public function maps_detail()
+    {
+         $data = [
+            'css'     => '',
+            'halaman' => 'Tentang',
+            'content' => 'home/maps/detail',
+            'js'      => ''
+        ];
+        // untuk load view
+        $this->load->view('home/base', $data);
     }
 }
