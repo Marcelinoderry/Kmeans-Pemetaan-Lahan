@@ -12,7 +12,7 @@
             <div class="carousel-container">
                 <h2 class="animate__animated animate__fadeInDown">Selamat Datang</h2>
                 <p class="animate__animated animate__fadeInUp">Kmeans Pemetaan Lahan.</p>
-                <a href="statistik.html" class="btn-get-started animate__animated animate__fadeInUp">Mulai</a>
+                <a href="<?= base_url() ?>maps" class="btn-get-started animate__animated animate__fadeInUp">Mulai</a>
             </div>
         </div>
     </div>
