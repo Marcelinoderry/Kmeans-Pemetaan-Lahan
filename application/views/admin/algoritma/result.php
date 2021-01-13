@@ -421,14 +421,14 @@ while (true) {
             text: 'Jumlah Panen Perkebunan Terbanyak, Sedang, dan Sedikit'
         },
         subtitle: {
-            text: 'Source: Hendrik Saputra 2020'
+            text: 'Basis Data Statistik Perkebunan'
         },
         xAxis: {
             type: 'category'
         },
         yAxis: {
             title: {
-                text: 'Total Jumlah Jenis Penderita Penyakit'
+                text: 'Hasil Jumlah (ton)'
             }
         },
         legend: {

@@ -16,7 +16,7 @@ class M_komoditas extends CI_Model
 
     public function getDetail($kd_kecamatan, $tahun)
     {
-        $result = $this->db->query("SELECT tb_kecamatan.nama AS kecamatan, tb_perkebunan.nama AS perkebunan, tb_komoditas.jumlah FROM tb_komoditas LEFT JOIN tb_kecamatan ON tb_komoditas.kd_kecamatan = tb_kecamatan.kd_kecamatan LEFT JOIN tb_perkebunan ON tb_komoditas.kd_perkebunan = tb_perkebunan.kd_perkebunan WHERE tb_komoditas.kd_kecamatan = '$kd_kecamatan' AND tb_komoditas.tahun = '$tahun'")->result();
+        $result = $this->db->query("SELECT tb_kecamatan.nama AS kecamatan, tb_perkebunan.nama AS perkebunan, tb_komoditas.jumlah FROM tb_komoditas LEFT JOIN tb_kecamatan ON tb_komoditas.kd_kecamatan = tb_kecamatan.kd_kecamatan LEFT JOIN tb_perkebunan ON tb_komoditas.kd_perkebunan = tb_perkebunan.kd_perkebunan WHERE tb_komoditas.kd_kecamatan = '$kd_kecamatan' AND tb_komoditas.tahun = '$tahun' ORDER BY tb_kecamatan.nama")->result();
         return $result;
     }
 

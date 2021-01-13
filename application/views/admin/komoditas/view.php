@@ -35,7 +35,8 @@
 
                     <!-- begin:: filter -->
                     <div class="form-row pb-4">
-                        <div class="col">
+                        <div class="form-group col">
+                            <label for="kecamatan">Kecamatan</label>
                             <select class="form-control" name="kecamatan" id="kecamatan">
                                 <option value="">- Semua -</option>
                                 <?php foreach ($kecamatan as $key => $value) : ?>
@@ -43,7 +44,8 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="col">
+                        <div class="form-group col">
+                            <label for="perkebunan">Perkebunan</label>
                             <select class="form-control" name="perkebunan" id="perkebunan">
                                 <option value="">- Semua -</option>
                                 <?php foreach ($perkebunan as $key => $value) : ?>
@@ -51,7 +53,8 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="col">
+                        <div class="form-group col">
+                            <label for="tahun">Tahun</label>
                             <select class="form-control" name="tahun" id="tahun">
                                 <option value="">- Semua -</option>
                                 <?php foreach ($tahun as $key => $value) : ?>

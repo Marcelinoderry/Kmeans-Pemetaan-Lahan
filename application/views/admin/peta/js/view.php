@@ -24,6 +24,12 @@
                             map: map,
                             animation: google.maps.Animation.DROP,
                             title: locations[i].nama,
+                            label: {
+                                color: '#000',
+                                fontWeight: 'bold',
+                                fontSize: '10px',
+                                text: locations[i].nama
+                            }
                         });
                         // event apa bila di click
                         google.maps.event.addListener(marker, 'click', (function(marker, i) {

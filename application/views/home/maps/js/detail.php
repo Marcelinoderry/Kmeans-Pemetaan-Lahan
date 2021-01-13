@@ -1,3 +1,13 @@
+<script src="<?= assets_url() ?>admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?= assets_url() ?>admin/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?= assets_url() ?>admin/assets/pages/data-table/js/jszip.min.js"></script>
+<script src="<?= assets_url() ?>admin/assets/pages/data-table/js/pdfmake.min.js"></script>
+<script src="<?= assets_url() ?>admin/assets/pages/data-table/js/vfs_fonts.js"></script>
+<script src="<?= assets_url() ?>admin/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="<?= assets_url() ?>admin/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="<?= assets_url() ?>admin/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?= assets_url() ?>admin/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= assets_url() ?>admin/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -6,6 +16,7 @@
 <script>
     // untuk tahun komoditas terbaru
     $(document).ready(function() {
+        // untuk highchart
         $.ajax({
             type: 'GET',
             url: '<?= base_url() ?>maps_get_komoditas',
@@ -22,6 +33,37 @@
                 alert(errorMsg);
             }
         });
+
+        // untuk datable
+        $.ajax({
+            type: 'GET',
+            url: '<?= base_url() ?>maps_get_komoditas_dt',
+            dataType: 'json',
+            data: {
+                kd_kecamatan: '<?= $data->kd_kecamatan ?>',
+                tahun: '<?= date('Y') ?>'
+            },
+            success: function(response) {
+                $('#datatabel').DataTable({
+                    data: response.data,
+                    columns: [{
+                            title: 'Perkebunan',
+                            data: 'perkebunan',
+                            className: 'text-center',
+                        },
+                        {
+                            title: 'Jumlah (Ton)',
+                            data: 'jumlah',
+                            className: 'text-center',
+                        },
+                    ],
+                });
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                var errorMsg = 'Request Ajax Gagal : ' + xhr.responseText;
+                alert(errorMsg);
+            }
+        });
     });
 
     // untuk filter tahun
@@ -29,6 +71,7 @@
         var kd_kecamatan = $(this).find(':selected').data('kd_kecamatan');
         var tahun = $(this).val();
 
+        // untuk higchart
         $.ajax({
             type: 'GET',
             url: '<?= base_url() ?>maps_get_komoditas',
@@ -39,6 +82,38 @@
             },
             success: function(response) {
                 getChart(response.data, response.tahun);
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                var errorMsg = 'Request Ajax Gagal : ' + xhr.responseText;
+                alert(errorMsg);
+            }
+        });
+
+        // untuk datable
+        $.ajax({
+            type: 'GET',
+            url: '<?= base_url() ?>maps_get_komoditas_dt',
+            dataType: 'json',
+            data: {
+                kd_kecamatan: kd_kecamatan,
+                tahun: tahun
+            },
+            success: function(response) {
+                $('#datatabel').DataTable().clear().destroy();
+                $('#datatabel').DataTable({
+                    data: response.data,
+                    columns: [{
+                            title: 'Perkebunan',
+                            data: 'perkebunan',
+                            className: 'text-center',
+                        },
+                        {
+                            title: 'Jumlah (Ton)',
+                            data: 'jumlah',
+                            className: 'text-center',
+                        },
+                    ],
+                });
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 var errorMsg = 'Request Ajax Gagal : ' + xhr.responseText;
@@ -56,7 +131,7 @@
                 text: 'Hasil Komoditas pada tahun ' + tahun
             },
             subtitle: {
-                text: 'Badan Pusat Statistik'
+                text: 'Basis Data Statistik Perkebunan'
             },
             xAxis: {
                 type: 'category',
@@ -81,21 +156,38 @@
                 pointFormat: 'Hasil panen perkebunan pada ' + tahun + ': <b>{point.y:.1f} ton</b>'
             },
             series: [{
-                name: 'Population',
                 data: data,
+                name: 'Population',
+                dataSorting: {
+                    enabled: true
+                },
+                zoneAxis: 'x',
+                zones: [{
+                    value: 1,
+                    color: '#ff4d40'
+                }],
                 dataLabels: {
                     enabled: true,
-                    rotation: -90,
-                    color: '#FFFFFF',
-                    align: 'right',
-                    format: '{point.y:.1f}', // one decimal
-                    y: 10, // 10 pixels down from the top
-                    style: {
-                        fontSize: '13px',
-                        fontFamily: 'Verdana, sans-serif'
+                    format: '{y:,.2f}'
+                },
+            }],
+            exporting: {
+                buttons: {
+                    contextButton: {
+                        menuItems: ["printChart",
+                            "separator",
+                            "downloadPNG",
+                            "downloadJPEG",
+                            "downloadPDF",
+                            "downloadSVG",
+                            "separator",
+                            "downloadCSV",
+                            "downloadXLS",
+                            "openInCloud"
+                        ]
                     }
                 }
-            }]
+            }
         });
     }
 </script>

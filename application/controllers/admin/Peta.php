@@ -87,4 +87,30 @@ class Peta extends MY_Controller
         // untuk response json
         $this->_response($response);
     }
+
+    // untuk ambil detail kecamatan
+    public function get_komoditas_dt()
+    {
+        $kd_kecamatan = $this->input->get('kd_kecamatan');
+        $tahun        = $this->input->get('tahun');
+        $data         = $this->m_komoditas->getDetail($kd_kecamatan, $tahun);
+        $sum          = count($data);
+
+        if ($sum != 0) {
+            foreach ($data as $key => $value) {
+                $result[] = [
+                    'perkebunan' => $value->perkebunan,
+                    'jumlah'     =>  (int) $value->jumlah,
+                ];
+            }
+        } else {
+            $result[] = [
+                'perkebunan' => 'Data Kosong!',
+                'jumlah'     => 'Data Kosong!',
+            ];
+        }
+        $response = ['data' => $result];
+        // untuk response json
+        $this->_response($response);
+    }
 }

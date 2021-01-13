@@ -86,6 +86,9 @@
                     <figure class="highcharts-figure">
                         <div id="container"></div>
                     </figure>
+
+                    <table class="table table-bordered table-striped" id="datatabel">
+                    </table>
                 </div>
             </div>
             <!-- end:: chart -->
