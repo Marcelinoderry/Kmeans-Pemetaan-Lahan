@@ -54,6 +54,19 @@
                                 });
                             }
                         })(marker, i));
+
+                        // untuk menampilka garis atau ppolygon
+                        var parsePolygon = JSON.parse(locations[i].polygon);
+
+                        const flightPath = new google.maps.Polyline({
+                            path: parsePolygon,
+                            geodesic: true,
+                            strokeColor: "#FF0000",
+                            strokeOpacity: 1.0,
+                            strokeWeight: 2,
+                        });
+
+                        flightPath.setMap(map);
                     }
                 }
             },
