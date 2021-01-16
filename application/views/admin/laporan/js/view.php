@@ -62,7 +62,7 @@
                 return false;
             }
 
-            location.replace("<?= admin_url(); ?>laporan/cetak?tahun=" + tahun);
+            window.open("<?= admin_url(); ?>laporan/cetak?tahun=" + tahun, '_blank');
         });
     }();
 </script>
