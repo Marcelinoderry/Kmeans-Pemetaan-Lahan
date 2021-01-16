@@ -20,7 +20,8 @@ class Laporan extends MY_Controller
             'halaman' => 'Laporan',
             'css'     => 'admin/laporan/css/view',
             'content' => 'admin/laporan/view',
-            'js'      => 'admin/laporan/js/view'
+            'js'      => 'admin/laporan/js/view',
+            'tahun'   => tahun(1970),
         ];
         // untuk load view
         $this->load->view('admin/base', $data);
@@ -30,5 +31,23 @@ class Laporan extends MY_Controller
     public function get_data_dt()
     {
         return $this->m_komoditas->getDataDt();
+    }
+
+    // untuk cetak
+    public function cetak()
+    {
+        $tahun  = $this->input->get('tahun');
+        $where  = "WHERE tb_komoditas.tahun = '{$tahun}'";
+        $result = $this->m_komoditas->getDataWhere($where);
+
+        $data = [
+            'data'  => $result,
+            'tahun' => $tahun
+        ];
+
+        $mpdf = new \Mpdf\Mpdf();
+        $html = $this->load->view('admin/laporan/cetak', $data, TRUE);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output();
     }
 }

@@ -31,6 +31,21 @@
                         <h4>Form</h4>
                     </div>
                     <div class="card-block">
+                        <!-- begin:: filter -->
+                        <div class="form-group">
+                            <label for="tahun">Tahun</label>
+                            <select class="form-control" name="tahun" id="tahun">
+                                <option value="">- Semua -</option>
+                                <?php foreach ($tahun as $key => $value) : ?>
+                                    <option value="<?= $value ?>"><?= $value ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-sm" type="button" name="print" id="print"><i class="fa fa-print"></i>&nbsp;Cetak</button>
+                        </div>
+                        <!-- end:: filter -->
+
                         <!-- begin:: tabel -->
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped" id="datatabel"></table>

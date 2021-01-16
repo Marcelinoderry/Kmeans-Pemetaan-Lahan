@@ -51,4 +51,18 @@
             ],
         });
     }();
+
+    // untuk export
+    var untukExportExcel = function() {
+        $(document).on('click', '#print', function() {
+            var tahun = $("#tahun").val();
+
+            if (tahun.length === 0) {
+                $("#tahun").attr('required');
+                return false;
+            }
+
+            location.replace("<?= admin_url(); ?>laporan/cetak?tahun=" + tahun);
+        });
+    }();
 </script>

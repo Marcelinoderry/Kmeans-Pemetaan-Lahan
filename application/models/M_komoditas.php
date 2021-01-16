@@ -20,6 +20,12 @@ class M_komoditas extends CI_Model
         return $result;
     }
 
+    public function getDataWhere($where)
+    {
+        $result = $this->db->query("SELECT tb_perkebunan.nama AS perkebunan, SUM(tb_komoditas.jumlah) AS produksi FROM tb_komoditas LEFT JOIN tb_perkebunan ON tb_komoditas.kd_perkebunan = tb_perkebunan.kd_perkebunan $where GROUP BY tb_perkebunan.nama ORDER BY tb_perkebunan.nama")->result();
+        return $result;
+    }
+
     public function getDataDt()
     {
         $this->datatables->select('tb_kecamatan.nama AS kecamatan, tb_perkebunan.nama AS perkebunan, tb_komoditas.tahun, tb_komoditas.jumlah');
