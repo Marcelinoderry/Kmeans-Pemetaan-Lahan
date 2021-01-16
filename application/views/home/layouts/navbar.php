@@ -7,6 +7,7 @@
         <li class="<?= ($halaman === 'Home' ? 'active' : '') ?>"><a href="<?= base_url() ?>">Beranda</a></li>
         <li class="<?= ($halaman === 'About' ? 'active' : '') ?>"><a href="<?= base_url() ?>about">Tentang</a></li>
         <li class="<?= ($halaman === 'Contact' ? 'active' : '') ?>"><a href="<?= base_url() ?>contact">Kontak</a></li>
+        <li class="<?= ($halaman === 'Komoditas' ? 'active' : '') ?>"><a href="<?= base_url() ?>komoditas">Komoditas</a></li>
         <li class="<?= ($halaman === 'Maps' ? 'active' : '') ?>"><a href="<?= base_url() ?>maps">Peta</a></li>
         <li><a href="<?= login_url() ?>">Login</a></li>
     </ul>

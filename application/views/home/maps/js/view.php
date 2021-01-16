@@ -24,6 +24,11 @@
                             map: map,
                             animation: google.maps.Animation.DROP,
                             title: locations[i].nama,
+                            icon: {
+                                url: "<?= assets_url() ?>pin.png",
+                                labelOrigin: new google.maps.Point(10, 40),
+                                scaledSize: new google.maps.Size(25, 35),
+                            },
                             label: {
                                 color: '#000',
                                 fontWeight: 'bold',
