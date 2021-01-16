@@ -19,6 +19,8 @@
     <!-- begin:: css local -->
     <?php empty($css) ? '' : $this->load->view($css); ?>
     <!-- end:: css local -->
+
+    <script src="<?= assets_url() ?>home/js/jquery/jquery.min.js"></script>
 </head>
 
 <body>
@@ -74,7 +76,6 @@
 
     <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
-    <script src="<?= assets_url() ?>home/js/jquery/jquery.min.js"></script>
     <script src="<?= assets_url() ?>home/js/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?= assets_url() ?>home/js/jquery.easing/jquery.easing.min.js"></script>
     <script src="<?= assets_url() ?>home/js/php-email-form/validate.js"></script>

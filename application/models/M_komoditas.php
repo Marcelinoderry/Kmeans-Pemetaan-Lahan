@@ -39,6 +39,18 @@ class M_komoditas extends CI_Model
             $this->datatables->where('tb_komoditas.tahun', $this->input->post('tahun'));
         }
 
+        if ($this->input->post('tahun_awal')) {
+            $tahunAwal  = $this->input->post('tahun_awal');
+            $tahunAkhir = $this->input->post('tahun_akhir');
+            $this->datatables->where("tb_komoditas.tahun BETWEEN '$tahunAwal' AND '$tahunAkhir'");
+        }
+        
+        if ($this->input->post('tahun_akhir')) {
+            $tahunAwal  = $this->input->post('tahun_awal');
+            $tahunAkhir = $this->input->post('tahun_akhir');
+            $this->datatables->where("tb_komoditas.tahun BETWEEN '$tahunAwal' AND '$tahunAkhir'");
+        }
+
         $this->datatables->order_by('tb_kecamatan.nama');
         $this->datatables->from('tb_komoditas');
 

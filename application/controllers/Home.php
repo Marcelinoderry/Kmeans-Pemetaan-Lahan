@@ -10,6 +10,7 @@ class Home extends MY_Controller
         // untuk mengecek role user
         checking_role_session($this->session->userdata('role'));
         // untuk load model
+        $this->load->model('m_perkebunan');
         $this->load->model('m_kecamatan');
         $this->load->model('m_komoditas');
     }
@@ -150,6 +151,21 @@ class Home extends MY_Controller
     // untuk menu komoditas
     public function komoditas()
     {
-        echo 'halaman komoditas';
+        $data = [
+            'css'        => 'home/komoditas/css/view',
+            'halaman'    => 'Komoditas',
+            'content'    => 'home/komoditas/view',
+            'js'         => 'home/komoditas/js/view',
+            'kecamatan'  => $this->m_kecamatan->getAll(),
+            'perkebunan' => $this->m_perkebunan->getAll(),
+            'tahun'      => tahun(1970),
+        ];
+        // untuk load view
+        $this->load->view('home/base', $data);
+    }
+
+    public function komoditas_get_data_dt()
+    {
+        return $this->m_komoditas->getDataDt();
     }
 }

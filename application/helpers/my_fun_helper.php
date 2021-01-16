@@ -67,12 +67,27 @@ if (!function_exists('tgl_indo')) {
         if ($tgl == "0000-00-00") {
             return "-";
         } else {
-            $tanggal    = substr($tgl, 8, 2);
-            $bulan      = get_bulan(substr($tgl, 5, 2));
-            $tahun      = substr($tgl, 0, 4);
-            // var_dump($tgl);
+            $tanggal = substr($tgl, 8, 2);
+            $bulan   = get_bulan(substr($tgl, 5, 2));
+            $tahun   = substr($tgl, 0, 4);
+
             return $tanggal . ' ' . $bulan . ' ' . $tahun;
         }
+    }
+}
+
+// untuk mengambil tahun
+if (!function_exists('tahun')) {
+    function tahun($start)
+    {
+        $getTahun = (int) date('Y');
+        $tahun = [];
+
+        for ($i = $start; $i <= $getTahun; $i++) {
+            $tahun[] = $i;
+        }
+
+        return $tahun;
     }
 }
 

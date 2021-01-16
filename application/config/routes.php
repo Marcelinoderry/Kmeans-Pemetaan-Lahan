@@ -14,4 +14,5 @@ $route['maps_get_peta_rincian'] = 'home/maps_get_peta_rincian';
 $route['maps_get_komoditas']    = 'home/maps_get_komoditas';
 $route['maps_get_komoditas_dt'] = 'home/maps_get_komoditas_dt';
 $route['maps_detail/:any']      = 'home/maps_detail';
-$route['komoditas']                  = 'home/komoditas';
+$route['komoditas']             = 'home/komoditas';
+$route['komoditas_get_data_dt'] = 'home/komoditas_get_data_dt';
