@@ -146,4 +146,10 @@ class Home extends MY_Controller
         // untuk load view
         $this->load->view('home/base', $data);
     }
+
+    // untuk menu komoditas
+    public function komoditas()
+    {
+        echo 'halaman komoditas';
+    }
 }
