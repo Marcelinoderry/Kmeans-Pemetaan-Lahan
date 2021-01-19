@@ -50,7 +50,7 @@
     <table align="center">
         <tr>
             <td width="700">
-                Berdasarkan dari hasil perkebunan pada tahun <?= $tahun ?> :
+                Berdasarkan dari hasil perkebunan pada tahun <?= $tahun ?> <?= $kecamatan ?> :
             </td>
         </tr>
     </table>

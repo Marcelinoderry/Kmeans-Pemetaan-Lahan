@@ -12,16 +12,18 @@ class Laporan extends MY_Controller
 
         // untuk load model
         $this->load->model('m_komoditas');
+        $this->load->model('m_kecamatan');
     }
 
     public function index()
     {
         $data = [
-            'halaman' => 'Laporan',
-            'css'     => 'admin/laporan/css/view',
-            'content' => 'admin/laporan/view',
-            'js'      => 'admin/laporan/js/view',
-            'tahun'   => tahun(1970),
+            'halaman'   => 'Laporan',
+            'css'       => 'admin/laporan/css/view',
+            'content'   => 'admin/laporan/view',
+            'js'        => 'admin/laporan/js/view',
+            'kecamatan' => $this->m_kecamatan->getAll(),
+            'tahun'     => tahun(1970),
         ];
         // untuk load view
         $this->load->view('admin/base', $data);
@@ -36,13 +38,24 @@ class Laporan extends MY_Controller
     // untuk cetak
     public function cetak()
     {
-        $tahun  = $this->input->get('tahun');
-        $where  = "WHERE tb_komoditas.tahun = '{$tahun}'";
+        $kecamatan = $this->input->get('kecamatan');
+        $tahun     = $this->input->get('tahun');
+
+        if ($kecamatan === 'all') {
+            $where         = "WHERE tb_komoditas.tahun = '{$tahun}'";
+            $kecamatanText = "untuk <b>SEMUA</b> Kecamatan";
+        } else {
+            $where         = "WHERE tb_komoditas.kd_kecamatan = '{$kecamatan}' AND tb_komoditas.tahun = '{$tahun}'";
+            $nmaKecamatan  = $this->m_kecamatan->getWhere($kecamatan)->nama;
+            $kecamatanText = "untuk Kecamatan <b>". strtoupper($nmaKecamatan)."</b>";
+        }
+
         $result = $this->m_komoditas->getDataWhere($where);
 
         $data = [
-            'data'  => $result,
-            'tahun' => $tahun
+            'kecamatan' => $kecamatanText,
+            'data'      => $result,
+            'tahun'     => $tahun
         ];
 
         $mpdf = new \Mpdf\Mpdf();

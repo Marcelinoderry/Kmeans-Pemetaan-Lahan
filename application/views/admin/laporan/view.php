@@ -33,9 +33,18 @@
                     <div class="card-block">
                         <!-- begin:: filter -->
                         <div class="form-group">
+                            <label for="kecamatan">Kecamatan</label>
+                            <select class="form-control" name="kecamatan" id="kecamatan">
+                                <option value="all">- Semua -</option>
+                                <?php foreach ($kecamatan as $key => $value) : ?>
+                                    <option value="<?= $value->kd_kecamatan ?>"><?= $value->nama ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="tahun">Tahun</label>
                             <select class="form-control" name="tahun" id="tahun">
-                                <option value="">- Semua -</option>
+                                <option value="">- Pilih -</option>
                                 <?php foreach ($tahun as $key => $value) : ?>
                                     <option value="<?= $value ?>"><?= $value ?></option>
                                 <?php endforeach; ?>

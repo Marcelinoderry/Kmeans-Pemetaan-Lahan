@@ -54,7 +54,8 @@
 
     // untuk export
     var untukExportExcel = function() {
-        $(document).on('click', '#print', function() {
+        $(document).on('click', '#print', function () {
+            var kecamatan = $("#kecamatan").val();
             var tahun = $("#tahun").val();
 
             if (tahun.length === 0) {
@@ -62,7 +63,7 @@
                 return false;
             }
 
-            window.open("<?= admin_url(); ?>laporan/cetak?tahun=" + tahun, '_blank');
+            window.open("<?= admin_url(); ?>laporan/cetak?kecamatan=" + kecamatan + "&tahun=" + tahun, '_blank');
         });
     }();
 </script>
