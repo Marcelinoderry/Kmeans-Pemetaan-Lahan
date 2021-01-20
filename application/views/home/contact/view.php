@@ -16,7 +16,7 @@
                             <div class="info-box">
                                 <i class="bx bx-map"></i>
                                 <h3>Alamat</h3>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <p>Jl. Poros Polewali Mamasa, Ranterante, Mamasa 91362</p>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -30,7 +30,7 @@
                             <div class="info-box">
                                 <i class="bx bx-phone-call"></i>
                                 <h3>Telepon</h3>
-                                <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                                <p>(0411) 402246, 402237</p>
                             </div>
                         </div>
                     </div>

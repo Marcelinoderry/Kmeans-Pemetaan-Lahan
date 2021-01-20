@@ -36,14 +36,14 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Alamat</h4>
                         <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States
+                            Jl. Poros Polewali Mamasa, <br>
+                            Ranterante, Mamasa 91362,<br>
+                            Sulawesi Barat
                         </p>
                     </div>
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Telepon</h4>
-                        +1 5589 55488 55
+                        (0411) 402246, 402237
                     </div>
                     <div class="col-lg-3 col-md-6 footer-contact">
                         <h4>Email</h4>
