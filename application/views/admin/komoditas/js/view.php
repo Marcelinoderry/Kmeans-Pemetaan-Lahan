@@ -22,6 +22,9 @@
             search: {
                 smart: true
             },
+            order: [
+                [3, "desc"]
+            ],
             searchDelay: 500,
             processing: true,
             serverSide: true,

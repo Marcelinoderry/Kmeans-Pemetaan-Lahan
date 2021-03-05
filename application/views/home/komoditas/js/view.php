@@ -25,6 +25,9 @@
             searchDelay: 500,
             processing: true,
             serverSide: true,
+            order: [
+                [3, "desc"]
+            ],
             ajax: {
                 url: '<?= base_url() ?>komoditas_get_data_dt',
                 type: 'POST',
