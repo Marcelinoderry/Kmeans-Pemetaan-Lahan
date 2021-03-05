@@ -100,7 +100,7 @@ class Peta extends MY_Controller
             foreach ($data as $key => $value) {
                 $result[] = [
                     'perkebunan' => $value->perkebunan,
-                    'jumlah'     =>  (int) $value->jumlah,
+                    'jumlah'     => $value->jumlah,
                 ];
             }
         } else {
@@ -109,6 +109,10 @@ class Peta extends MY_Controller
                 'jumlah'     => 'Data Kosong!',
             ];
         }
+
+        // sorting multi array / associative array
+        array_multisort(array_column($result, 'jumlah'), SORT_DESC, $result);
+
         $response = ['data' => $result];
         // untuk response json
         $this->_response($response);

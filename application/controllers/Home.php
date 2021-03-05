@@ -119,7 +119,7 @@ class Home extends MY_Controller
             foreach ($data as $key => $value) {
                 $result[] = [
                     'perkebunan' => $value->perkebunan,
-                    'jumlah'     =>  (int) $value->jumlah,
+                    'jumlah'     => $value->jumlah,
                 ];
             }
         } else {
@@ -128,6 +128,10 @@ class Home extends MY_Controller
                 'jumlah'     => 'Data Kosong!',
             ];
         }
+
+        // sorting multi array / associative array
+        array_multisort(array_column($result, 'jumlah'), SORT_DESC, $result);
+
         $response = ['data' => $result];
         // untuk response json
         $this->_response($response);
@@ -167,5 +171,24 @@ class Home extends MY_Controller
     public function komoditas_get_data_dt()
     {
         return $this->m_komoditas->getDataDt();
+    }
+
+    // untuk menu production
+    public function production()
+    {
+        $data = [
+            'css'        => 'home/production/css/view',
+            'halaman'    => 'Produksi',
+            'content'    => 'home/production/view',
+            'js'         => 'home/production/js/view',
+            'tahun'      => tahun(1970),
+        ];
+        // untuk load view
+        $this->load->view('home/base', $data);
+    }
+
+    public function production_get_data_dt()
+    {
+        return $this->m_komoditas->getDataProduksiDt();
     }
 }
