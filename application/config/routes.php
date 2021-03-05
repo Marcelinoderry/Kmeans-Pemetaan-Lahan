@@ -16,3 +16,5 @@ $route['maps_get_komoditas_dt'] = 'home/maps_get_komoditas_dt';
 $route['maps_detail/:any']      = 'home/maps_detail';
 $route['komoditas']             = 'home/komoditas';
 $route['komoditas_get_data_dt'] = 'home/komoditas_get_data_dt';
+$route['production']            = 'home/production';
+$route['produksi_get_data_dt']  = 'home/production_get_data_dt';
