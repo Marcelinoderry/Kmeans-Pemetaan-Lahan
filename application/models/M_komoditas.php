@@ -26,6 +26,7 @@ class M_komoditas extends CI_Model
         return $result;
     }
 
+    // get data komoditas
     public function getDataDt()
     {
         $this->datatables->select('tb_kecamatan.nama AS kecamatan, tb_perkebunan.nama AS perkebunan, tb_komoditas.tahun, tb_komoditas.jumlah');
@@ -57,7 +58,24 @@ class M_komoditas extends CI_Model
             $this->datatables->where("tb_komoditas.tahun BETWEEN '$tahunAwal' AND '$tahunAkhir'");
         }
 
-        $this->datatables->order_by('tb_kecamatan.nama');
+        $this->datatables->from('tb_komoditas');
+
+        return print_r($this->datatables->generate());
+    }
+
+    // get data produksi
+    public function getDataProduksiDt()
+    {
+        $this->datatables->select('tb_kecamatan.nama AS kecamatan, tb_perkebunan.nama AS perkebunan, tb_komoditas.tahun, tb_komoditas.jumlah');
+        $this->datatables->join('tb_kecamatan', 'tb_komoditas.kd_kecamatan = tb_kecamatan.kd_kecamatan', 'left');
+        $this->datatables->join('tb_perkebunan', 'tb_komoditas.kd_perkebunan = tb_perkebunan.kd_perkebunan', 'left');
+
+        // untuk filter
+        if ($this->input->post('tahun')) {
+            $tahun = $this->input->post('tahun');
+            $this->datatables->where("tb_komoditas.jumlah = (SELECT MAX( tb_komoditas.jumlah ) AS tertinggi FROM tb_komoditas WHERE tb_komoditas.tahun = '$tahun' AND tb_komoditas.kd_kecamatan = tb_kecamatan.kd_kecamatan)");
+        }
+
         $this->datatables->from('tb_komoditas');
 
         return print_r($this->datatables->generate());
