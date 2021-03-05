@@ -60,7 +60,7 @@
                     <div id="container"></div>
                 </figure>
 
-                <table class="table table-bordered table-striped" id="datatabel">
+                <table class="table table-bordered table-striped" id="datatabel" data-order="">
                 </table>
             </div>
         </div>
