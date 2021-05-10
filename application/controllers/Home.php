@@ -110,6 +110,17 @@ class Home extends MY_Controller
         $this->load->view('home/uji/result', $data);
     }
 
+    public function cetak()
+    {
+        $data['hasil_cluster'] = array(
+            $this->input->post('cls1'),
+            $this->input->post('cls2'),
+            $this->input->post('cls3'),
+        );
+        // untuk menload view
+        $this->load->view('home/uji/cetak', $data);
+    }
+
     // untuk ambil data kecamatan
     public function maps_get_peta()
     {

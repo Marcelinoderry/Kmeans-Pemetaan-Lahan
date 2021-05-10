@@ -19,3 +19,4 @@ $route['production']            = 'home/production';
 $route['produksi_get_data_dt']  = 'home/production_get_data_dt';
 $route['uji']                   = 'home/uji';
 $route['tahun']                 = 'home/tahun';
+$route['cetak']                 = 'home/cetak';

@@ -239,7 +239,7 @@ Terdapat :
     <li>- <b><?php echo count($pemb_clus['cls3']); ?></b> Jenis Perkebunan dengan jumlah Panen Rendah.</li>
 </ul>
 <br>
-<form action="<?= admin_url() ?>algoritma/cetak" method="post" target="_blank">
+<form action="<?= base_url() ?>cetak" method="post" target="_blank">
     <input type="hidden" name="cls1" id="cls1" value="<?= count($pemb_clus['cls1']) ?>" />
     <input type="hidden" name="cls2" id="cls2" value="<?= count($pemb_clus['cls2']) ?>" />
     <input type="hidden" name="cls3" id="cls3" value="<?= count($pemb_clus['cls3']) ?>" />
