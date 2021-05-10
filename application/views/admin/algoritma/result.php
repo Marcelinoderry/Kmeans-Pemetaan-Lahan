@@ -78,6 +78,13 @@ $proses = new Proses;
 </div>
 
 <?php
+$keterangan_centroid = [
+    '',
+    'Tinggi',
+    'Sedang',
+    'Rendah',
+];
+
 $iterasi = 1;
 while (true) {
     // variabel untuk menentukan masuk pada kelompok apa
@@ -267,9 +274,9 @@ while (true) {
                                 <th rowspan="2">Cluster</th>
                             </tr>
                             <tr>
-                                <th>C1</th>
-                                <th>C2</th>
-                                <th>C3</th>
+                                <th>Tinggi</th>
+                                <th>Sedang</th>
+                                <th>Rendah</th>
                             </tr>
                         </thead>
                         <tbody align="center">
@@ -316,7 +323,7 @@ while (true) {
                         <?php $c = 1 ?>
                         <?php foreach ($centroid_baru as $key => $value) { ?>
                             <tr>
-                                <td>c<?= $c++ ?></td>
+                                <td><?= $keterangan_centroid[$c++] ?></td>
                                 <?php for ($i = 0; $i < count($centroid_baru); $i++) { ?>
                                     <td><?= $value[$i] ?></td>
                                 <?php } ?>
@@ -350,7 +357,7 @@ while (true) {
                     <tr>
                         <th>No</th>
                         <?php for ($i = 1; $i <= count($centroid); $i++) { ?>
-                            <th>C<?= $i ?></th>
+                            <th><?= $keterangan_centroid[$i] ?></th>
                         <?php } ?>
                     </tr>
                 </thead>
@@ -389,15 +396,15 @@ while (true) {
     <div class="card-block">
         Berdasarkan dari hasil Clustering yang telah dibagi menjadi 3 Cluss yaitu :
         <ul>
-            <li>- Panen Perkebunan Terbanyak</li>
+            <li>- Panen Perkebunan Tinggi</li>
             <li>- Panen Perkebunan Sedang</li>
-            <li>- Panen Perkebunan Sedikit</li>
+            <li>- Panen Perkebunan Rendah</li>
         </ul>
         Terdapat :
         <ul>
-            <li>- <b><?php echo count($pemb_clus['cls1']); ?></b> Jenis Perkebunan dengan jumlah Panen Terbanyak.</li>
+            <li>- <b><?php echo count($pemb_clus['cls1']); ?></b> Jenis Perkebunan dengan jumlah Panen Tinggi.</li>
             <li>- <b><?php echo count($pemb_clus['cls2']); ?></b> Jenis Perkebunan dengan jumlah Panen Sedang.</li>
-            <li>- <b><?php echo count($pemb_clus['cls3']); ?></b> Jenis Perkebunan dengan jumlah Panen Sedikit.</li>
+            <li>- <b><?php echo count($pemb_clus['cls3']); ?></b> Jenis Perkebunan dengan jumlah Panen Rendah.</li>
         </ul>
     </div>
     <div class="card-footer">
@@ -418,7 +425,7 @@ while (true) {
             type: 'column'
         },
         title: {
-            text: 'Jumlah Panen Perkebunan Terbanyak, Sedang, dan Sedikit'
+            text: 'Jumlah Panen Perkebunan Tinggi, Sedang, dan Rendah'
         },
         subtitle: {
             text: 'Basis Data Statistik Perkebunan'
@@ -453,7 +460,7 @@ while (true) {
             name: "Browsers",
             colorByPoint: true,
             data: [{
-                    name: "Panen Perkebunan Terbanyak",
+                    name: "Panen Perkebunan Tinggi",
                     y: parseInt($('#cls1').val()),
                 },
                 {
@@ -461,7 +468,7 @@ while (true) {
                     y: parseInt($('#cls2').val()),
                 },
                 {
-                    name: "Panen Perkebunan Sedikit",
+                    name: "Panen Perkebunan Rendah",
                     y: parseInt($('#cls3').val()),
                 }
             ]

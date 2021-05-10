@@ -40,23 +40,8 @@
                         google.maps.event.addListener(marker, 'click', (function(marker, i) {
                             return function() {
                                 var kd_kecamatan = locations[i].kd_kecamatan;
-                                $.ajax({
-                                    type: 'GET',
-                                    url: '<?= base_url() ?>maps_get_peta_rincian',
-                                    dataType: 'html',
-                                    data: {
-                                        kd_kecamatan: kd_kecamatan,
-                                    },
-                                    success: function(response) {
-                                        $('.modal-body').html(response);
 
-                                        $('#exampleModal').modal('show');
-                                    },
-                                    error: function(xhr, ajaxOptions, thrownError) {
-                                        var errorMsg = 'Request Ajax Gagal : ' + xhr.responseText;
-                                        alert(errorMsg);
-                                    }
-                                });
+                                window.location.href = '<?= base_url() ?>maps_detail/' + kd_kecamatan;
                             }
                         })(marker, i));
 

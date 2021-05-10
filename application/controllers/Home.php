@@ -13,6 +13,7 @@ class Home extends MY_Controller
         $this->load->model('m_perkebunan');
         $this->load->model('m_kecamatan');
         $this->load->model('m_komoditas');
+        $this->load->model('m_algoritma');
     }
 
     public function index()
@@ -63,6 +64,52 @@ class Home extends MY_Controller
         $this->load->view('home/base', $data);
     }
 
+    public function uji()
+    {
+        $data = [
+            'css'     => '',
+            'halaman' => 'Uji',
+            'content' => 'home/uji/view',
+            'js'      => 'home/uji/js/view',
+            'tahun'   => $this->m_komoditas->getYear(),
+        ];
+        // untuk load view
+        $this->load->view('home/base', $data);
+    }
+
+    public function tahun()
+    {
+        $post = $this->input->post(NULL, TRUE);
+
+        $inptahun1 = $post['inptahun1'];
+        $inptahun2 = $post['inptahun2'];
+        $inptahun3 = $post['inptahun3'];
+
+        $perkebunan  = $this->m_perkebunan->getAll();
+        $dataCluster = $this->m_algoritma->getDataMining($perkebunan, $inptahun1, $inptahun2, $inptahun3);
+
+        $result = [];
+        foreach ($dataCluster as $key => $value) {
+            $hasil = [
+                'nama_produk' => $value['nama_produk'],
+                $value['jumlah_hasil1'],
+                $value['jumlah_hasil2'],
+                $value['jumlah_hasil3'],
+            ];
+            array_push($result, $hasil);
+        }
+
+        $data = [
+            'tahun1'      => $post['inptahun1'],
+            'tahun2'      => $post['inptahun2'],
+            'tahun3'      => $post['inptahun3'],
+            'datacluster' => $dataCluster,
+            'data'        => $result,
+        ];
+        // untuk menload view
+        $this->load->view('home/uji/result', $data);
+    }
+
     // untuk ambil data kecamatan
     public function maps_get_peta()
     {
@@ -70,16 +117,6 @@ class Home extends MY_Controller
 
         // untuk response
         $this->_response($result);
-    }
-
-    // untuk ambil detail kecamatan
-    public function maps_get_peta_rincian()
-    {
-        $kd_kecamatan = $this->input->get('kd_kecamatan');
-
-        $data['kecamatan'] = $this->m_kecamatan->getWhere($kd_kecamatan);
-
-        $this->load->view('home/maps/rincian', $data);
     }
 
     // untuk ambil detail kecamatan

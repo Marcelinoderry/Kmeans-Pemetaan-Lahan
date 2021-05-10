@@ -10,6 +10,7 @@
         <li class="<?= ($halaman === 'Komoditas' ? 'active' : '') ?>"><a href="<?= base_url() ?>komoditas">Komoditas</a></li>
         <li class="<?= ($halaman === 'Produksi' ? 'active' : '') ?>"><a href="<?= base_url() ?>production">Hasil Produksi</a></li>
         <li class="<?= ($halaman === 'Maps' ? 'active' : '') ?>"><a href="<?= base_url() ?>maps">Peta</a></li>
+        <li class="<?= ($halaman === 'Uji' ? 'active' : '') ?>"><a href="<?= base_url() ?>uji">Uji</a></li>
         <li><a href="<?= login_url() ?>">Login</a></li>
     </ul>
 </nav>
