@@ -193,6 +193,7 @@ while (true) {
 ?>
 <!-- tabal untuk pembagian cluster penyakit -->
 <br>
+<h2>Hasil Perkebunan 3 Tahun Terakhir <?= $tahun1 ?>, <?= $tahun2 ?>, <?= $tahun3 ?>.</h2>
 <div class="table-responsive">
     <table class="table table-bordered table-striped" id="datatabel">
         <thead>
@@ -206,7 +207,11 @@ while (true) {
         <tbody align="center">
             <?php
             $no = 1;
-            foreach ($hasil_class as $key => $value) { ?>
+            foreach ($hasil_class as $key => $value) {
+                $hasil_tinggi[] = $value["class1"];
+                $hasil_sedang[] = $value["class2"];
+                $hasil_rendah[] = $value["class3"];
+            ?>
                 <tr>
                     <td><?= $no++ ?></td>
                     <?php for ($i = 1; $i <= count($centroid); $i++) { ?>
@@ -219,6 +224,31 @@ while (true) {
 </div>
 <br>
 <!-- tabal untuk pembagian cluster penyakit -->
+<h2>Hasil Perkebunan Tahun Akhir <?= ($tahun3 + 1) ?>.</h2>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped" id="datatabel">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Perkebunan</th>
+                <th>Produksi</th>
+            </tr>
+        </thead>
+        <tbody align="center">
+            <?php
+            $no = 1;
+            foreach ($tahun4 as $key => $value) {
+                $hasil_akhir[$value->perkebunan] = $value->produksi;
+            ?>
+                <tr>
+                    <td><?= $no++ ?></td>
+                    <td><?= $value->perkebunan ?></td>
+                    <td><?= $value->produksi ?></td>
+                <tr>
+                <?php } ?>
+        </tbody>
+    </table>
+</div>
 <!-- untuk menampikan grafik dari hasil cluster -->
 <br>
 <div id="container"></div>
@@ -226,25 +256,73 @@ while (true) {
 <!-- untuk menampikan grafik dari hasil cluster -->
 <!-- untuk menampilkan kesimpulan -->
 <br>
-Berdasarkan dari hasil Clustering yang telah dibagi menjadi 3 Cluss yaitu :
+Dari hasil Clustering yang telah dibagi menjadi 3 Cluss yaitu :
 <ul>
     <li>- Panen Perkebunan Tinggi</li>
     <li>- Panen Perkebunan Sedang</li>
     <li>- Panen Perkebunan Rendah</li>
 </ul>
-Terdapat :
+Terdapat, Jenis perkebunan tertinggi pada 3 tahun terakhir :
 <ul>
-    <li>- <b><?php echo count($pemb_clus['cls1']); ?></b> Jenis Perkebunan dengan jumlah Panen Tinggi.</li>
-    <li>- <b><?php echo count($pemb_clus['cls2']); ?></b> Jenis Perkebunan dengan jumlah Panen Sedang.</li>
-    <li>- <b><?php echo count($pemb_clus['cls3']); ?></b> Jenis Perkebunan dengan jumlah Panen Rendah.</li>
+    <li>
+        - <b><?php echo count($pemb_clus['cls1']); ?></b> Jenis Perkebunan dengan jumlah Produksi Tinggi Pada Tahun <?= $tahun1 ?> berikut jenis perkebunanan :
+        <ol type="number">
+            <?php
+            $filter_hasil_tinggi = array_values(array_filter($hasil_tinggi));
+            for ($i = 0; $i < count($filter_hasil_tinggi); $i++) { ?>
+                <li><?= $filter_hasil_tinggi[$i] ?></li>
+            <?php } ?>
+        </ol>
+    </li>
+    <li>
+        - <b><?php echo count($pemb_clus['cls2']); ?></b> Jenis Perkebunan dengan jumlah Produksi Sedang Pada Tahun <?= $tahun2 ?> berikut jenis perkebunanan :
+        <ol type="number">
+            <?php
+            $filter_hasil_sedang = array_values(array_filter($hasil_sedang));
+            for ($i = 0; $i < count($filter_hasil_sedang); $i++) { ?>
+                <li><?= $filter_hasil_sedang[$i] ?></li>
+            <?php } ?>
+        </ol>
+    </li>
+    <li>
+        - <b><?php echo count($pemb_clus['cls3']); ?></b> Jenis Perkebunan dengan jumlah Produksi Rendah Pada Tahun <?= $tahun3 ?> berikut jenis perkebunanan :
+        <ol type="number">
+            <?php
+            $filter_hasil_rendah = array_values(array_filter($hasil_rendah));
+            for ($i = 0; $i < count($filter_hasil_rendah); $i++) { ?>
+                <li><?= $filter_hasil_rendah[$i] ?></li>
+            <?php } ?>
+        </ol>
+    </li>
 </ul>
-<br>
-<form action="<?= base_url() ?>cetak" method="post" target="_blank">
-    <input type="hidden" name="cls1" id="cls1" value="<?= count($pemb_clus['cls1']) ?>" />
-    <input type="hidden" name="cls2" id="cls2" value="<?= count($pemb_clus['cls2']) ?>" />
-    <input type="hidden" name="cls3" id="cls3" value="<?= count($pemb_clus['cls3']) ?>" />
-    <button type="submit" class="btn btn-success btn-block"><i class="fa fa-print"></i> Cetak</button>
-</form>
+Jenis perkebunan tertinggi pada tahun ke 4 :
+<ul>
+    <li>
+        <?php
+        arsort($hasil_akhir);
+        $filter_hasil_akhir = array_filter($hasil_akhir)
+        ?>
+        - <b><?= count($filter_hasil_akhir) ?></b> Jenis Perkebunan dengan jumlah Produksi Tertinggi Pada Tahun <?= ($tahun3 + 1) ?> berikut jenis perkebunanan :
+        <ol type="number">
+            <?php
+            foreach ($filter_hasil_akhir as $key => $value) {
+            ?>
+                <li><?= $key ?> (<?= $value ?>)</li>
+            <?php } ?>
+        </ol>
+    </li>
+</ul>
+<p>
+    Berdasarkan data diatas dapat ditarik kesimpulan bahwa dalam proses produksi hasil perkebunan terbanyak yang terdapat pada Kabupaten Mamasa, dari hasil perbandingan 3 tahun terakhir dengan 1 tahun selanjutnya sebagai berikut :
+</p>
+<ul>
+    <?php
+    reset($filter_hasil_akhir);
+    $first_key = key($filter_hasil_akhir);
+    ?>
+    <li>3 Tahun Terakhir : <b><?= $filter_hasil_tinggi[0] ?></b></li>
+    <li>1 Tahun Selanjutnya : <b><?= $first_key ?></b></li>
+</ul>
 <!-- untuk menampilkan kesimpulan -->
 
 <script>

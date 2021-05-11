@@ -84,6 +84,7 @@ class Home extends MY_Controller
         $inptahun1 = $post['inptahun1'];
         $inptahun2 = $post['inptahun2'];
         $inptahun3 = $post['inptahun3'];
+        $tahunKeEmpat = ($inptahun3 + 1);
 
         $perkebunan  = $this->m_perkebunan->getAll();
         $dataCluster = $this->m_algoritma->getDataMining($perkebunan, $inptahun1, $inptahun2, $inptahun3);
@@ -99,10 +100,14 @@ class Home extends MY_Controller
             array_push($result, $hasil);
         }
 
+        $where = "WHERE tb_komoditas.tahun = '{$tahunKeEmpat}'";
+        $getTahunKeEmpat = $this->m_komoditas->getDataWhere($where);
+
         $data = [
             'tahun1'      => $post['inptahun1'],
             'tahun2'      => $post['inptahun2'],
             'tahun3'      => $post['inptahun3'],
+            'tahun4'      => $getTahunKeEmpat,
             'datacluster' => $dataCluster,
             'data'        => $result,
         ];
